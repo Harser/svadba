@@ -1,0 +1,947 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#1F3A2E">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Алексей и Татьяна · 22.08.2027">
+<meta property="og:description" content="Приглашение на свадьбу · Pirogovo Event">
+<meta property="og:image" content="https://harser.github.io/svadba/og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:url" content="https://harser.github.io/svadba/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%231F3A2E'/%3E%3Crect x='14' y='14' width='36' height='36' transform='rotate(45 32 32)' fill='none' stroke='%23D8C39B' stroke-width='2'/%3E%3Ctext x='32' y='39' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-size='19' fill='%23F4EEE6'%3EА%26Т%3C/text%3E%3C/svg%3E">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Алексей и Татьяна · 22.08.2027</title>
+<meta name="description" content="Приглашение на свадьбу Алексея и Татьяны · 22 августа 2027 · Pirogovo Event">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Tenor+Sans&family=Forum&family=Prata&display=swap">
+<style>
+/* Layout: a letter-like column (max 600px) read on a phone, centred on desktop.
+   Art Deco by the water: thin champagne-gold lines, sunburst fans, scalloped "seigaiha" waves.
+   Forest-green cover and closing, milk-paper body, burgundy as ink. One deliberate light look. */
+:root{
+  --forest:#1F3A2E; --forest-2:#2B4A3B; --wine:#6E1F2E; --wine-2:#8A3443;
+  --paper:#F8F4EF; --paper-2:#F0E9E0; --ink:#2A2422; --muted:#6F6660; --line:#DDD3C7;
+  --gold:#B39566; --gold-light:#D8C39B; --on-dark:#F4EEE6; --on-dark-muted:#C9D3CC;
+  /* «от леса к берегу»: тёмно-зелёный → оливковый → светлый песок/молоко; светлый шалфей для части разделов */
+  --olive-deep:#3B4A37; --olive:#5A6647; --olive-light:#A2A98C; --sand:#DDDCCD; --sage:#EAEDE2;
+  --bg:var(--paper);                         /* цвет фона текущего раздела — для «зазоров» в рамках */
+  --f-display:"Tenor Sans", "Optima", "Candara", sans-serif;
+  --f-body:"Cormorant Garamond", "Times New Roman", serif;
+  --ease:cubic-bezier(.2,.7,.2,1);
+  --waves:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='24' viewBox='0 0 48 24' fill='none' stroke='%23D8C39B' stroke-width='.7'%3E%3Cpath d='M0 24a24 24 0 0 1 48 0M8 24a16 16 0 0 1 32 0M16 24a8 8 0 0 1 16 0M-24 12a24 24 0 0 1 48 0M-16 12a16 16 0 0 1 32 0M-8 12a8 8 0 0 1 16 0M24 12a24 24 0 0 1 48 0M32 12a16 16 0 0 1 32 0M40 12a8 8 0 0 1 16 0'/%3E%3C/svg%3E");
+  color-scheme:light;
+}
+:root[data-font="forum"]{--f-display:"Forum", "Times New Roman", serif}
+:root[data-font="prata"]{--f-display:"Prata", "Times New Roman", serif}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--forest);color:var(--ink);font-family:var(--f-body);font-size:19px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:clip}
+.wrap{max-width:600px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+h2{font-family:var(--f-display);font-weight:400;font-size:clamp(28px,7.2vw,38px);line-height:1.15;margin:10px 0 0;text-wrap:balance;color:var(--forest);letter-spacing:.01em}
+.eyebrow{font-family:var(--f-display);font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold)}
+section{padding-block:clamp(40px,7vw,64px)}
+.morph + section{padding-top:clamp(24px,4vw,36px)}
+main{background:var(--paper)}
+.center{text-align:center}
+.lead{font-size:23px;line-height:1.5;color:var(--ink);margin:20px auto 0;max-width:32ch}
+.muted{color:var(--muted)}
+a{color:var(--wine)}
+:focus-visible{outline:2px solid var(--wine);outline-offset:3px}
+
+/* deco divider — draws itself in */
+.deco{display:block;margin:0 auto 18px;width:150px;height:auto;color:var(--gold)}
+.deco path,.deco circle{stroke-dasharray:1;stroke-dashoffset:0;transition:stroke-dashoffset 1.8s var(--ease)}
+
+/* ---- reveal on scroll (hidden only once JS confirms) ---- */
+.pre{opacity:0;transform:translateY(26px);filter:blur(4px)}
+.pre[data-reveal="zoom"]{transform:scale(.93)}
+.pre[data-reveal="fade"]{transform:none}
+.in{opacity:1;transform:none;filter:none;transition:opacity 1s var(--ease) var(--d,0s),transform 1.1s var(--ease) var(--d,0s),filter 1s var(--ease) var(--d,0s)}
+.deco.pre{filter:none;transform:none;opacity:1}
+.deco.pre path,.deco.pre circle{stroke-dashoffset:1}
+
+/* draft bar */
+.draft{background:var(--wine);color:var(--on-dark);font:13px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;position:relative;z-index:5}
+.draft .wrap{padding-block:9px;display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center}
+.draft b{font-weight:600}
+.draft .sep{width:100%;height:0}
+.draft button{border:1px solid rgba(255,255,255,.45);background:transparent;color:inherit;border-radius:999px;padding:3px 10px;font:inherit;cursor:pointer}
+.draft button.on{background:var(--on-dark);color:var(--wine)}
+
+/* ---- cover ---- */
+.cover{background:var(--forest);color:var(--on-dark);position:relative;overflow:hidden}
+.cover::before,.greet::before,.dusk::before,footer::before{content:"";position:absolute;inset:0;background:var(--waves);background-size:48px 24px;opacity:.09;background-position:0 var(--wy,0px);pointer-events:none}
+.cover::after,footer::after{content:"";position:absolute;inset:14px;border:1px solid rgba(216,195,155,.35);pointer-events:none}
+.corner{position:absolute;width:64px;height:64px;color:var(--gold-light);opacity:.7;pointer-events:none;z-index:1}
+.corner.tl{left:14px;top:14px}.corner.tr{right:14px;top:14px;transform:scaleX(-1)}
+.corner.bl{left:14px;bottom:14px;transform:scaleY(-1)}.corner.br{right:14px;bottom:14px;transform:scale(-1,-1)}
+.cover .wrap{min-height:100vh;min-height:100svh;padding-block:clamp(40px,6vh,64px) clamp(32px,5vh,52px);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:clamp(16px,2.6vh,26px);position:relative;z-index:1}
+/* горизонтальная рамка для общего фото: двойная золотая линия + ступенчатые уголки */
+.hero{position:relative;width:min(560px,calc(100% - 28px));aspect-ratio:3/2;max-width:100%}
+@media (max-width:599px){ #cover .hero{aspect-ratio:4/3} }
+.hero .pic{position:absolute;inset:0;overflow:hidden;box-shadow:0 0 0 1px var(--gold-light),0 0 0 7px var(--forest),0 0 0 8px rgba(216,195,155,.55)}
+.hero .inner{position:absolute;inset:-8% 0;will-change:transform}
+.hero .hc{position:absolute;width:26px;height:26px;color:var(--gold-light);z-index:1;pointer-events:none}
+.hero .hc.tl{left:-12px;top:-12px}.hero .hc.tr{right:-12px;top:-12px;transform:scaleX(-1)}
+.hero .hc.bl{left:-12px;bottom:-12px;transform:scaleY(-1)}.hero .hc.br{right:-12px;bottom:-12px;transform:scale(-1,-1)}
+.hero.light .pic{box-shadow:0 0 0 1px var(--gold),0 0 0 7px var(--bg),0 0 0 8px rgba(179,149,102,.5),0 16px 34px rgba(42,36,34,.14)}
+.hero.light .hc{color:var(--gold)}
+/* ворота: пока приглашение не открыто, остального сайта нет */
+.gated{display:none!important}
+.names{font-family:var(--f-display);font-weight:400;font-size:clamp(44px,12.5vw,64px);line-height:1.08;margin:0;color:var(--on-dark);letter-spacing:.02em}
+.names .amp{display:block;font-family:var(--f-body);font-style:italic;font-size:.62em;color:var(--gold-light);margin:4px 0}
+.date{font-family:var(--f-display);font-size:21px;letter-spacing:.28em;display:flex;align-items:center;gap:14px;color:var(--on-dark)}
+.date i{width:30px;height:1px;background:var(--gold-light);display:inline-block;position:relative}
+.date i::after{content:"";position:absolute;top:-3px;width:6px;height:6px;border:1px solid var(--gold-light);transform:rotate(45deg)}
+.date i:first-child::after{right:-3px}.date i:last-child::after{left:-3px}
+.medal{margin-top:4px;display:flex;flex-direction:column;align-items:center;gap:12px;background:none;border:0;color:var(--on-dark);cursor:pointer;font:12px/1 var(--f-display);letter-spacing:.3em;text-transform:uppercase}
+.medal .m{width:82px;height:82px;position:relative;display:grid;place-items:center;transition:transform .6s var(--ease)}
+.medal .m svg{position:absolute;inset:0;width:100%;height:100%;color:var(--gold-light)}
+.medal .m span{font-family:var(--f-body);font-style:italic;font-size:24px;letter-spacing:0;text-transform:none;color:var(--on-dark);transition:transform .6s var(--ease)}
+.medal:hover .m{transform:rotate(45deg)}
+.medal:hover .m span{transform:rotate(-45deg)}
+.medal.pop .m{animation:spin 1s var(--ease)}
+@keyframes spin{to{transform:rotate(180deg)}}
+.medal .arrow{width:18px;height:18px;animation:bob 2.4s ease-in-out infinite;color:var(--gold-light)}
+@keyframes bob{50%{transform:translateY(5px)}}
+
+/* photo placeholder */
+.ph{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:linear-gradient(160deg,var(--paper-2),#E4D8CB);color:var(--muted);font-size:16px;line-height:1.3;text-align:center;padding:12px}
+.ph svg{width:28px;height:28px;opacity:.55}
+.ph.kid{background:linear-gradient(160deg,#F3E6D8,#E6D0BE)}
+.ph.adult{background:linear-gradient(160deg,#E2E3D6,#CDD1C0)}
+.ph.couple{background:linear-gradient(160deg,#E7DCD3,#D9CBC0)}
+.ph.dark{background:linear-gradient(160deg,var(--forest-2),#3A5A49);color:var(--on-dark-muted)}
+.ph-img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* ---- greeting ---- */
+.greet{position:relative;z-index:2;color:var(--on-dark);background:var(--forest);padding-top:clamp(44px,7vw,60px);padding-bottom:clamp(44px,8vw,60px)}
+.greet > .wrap,.dusk > .wrap{position:relative}
+/* край воды в стиле ар-деко: полукруглые фестоны с тонкой золотой линией */
+.greet::after,.dusk::after{content:"";position:absolute;left:0;right:0;height:24px;pointer-events:none}
+.greet::after{bottom:-24px;
+  background:radial-gradient(circle at 20px 0,transparent 21.5px,rgba(179,149,102,.8) 22px,rgba(179,149,102,.8) 22.8px,transparent 23.3px) 0 0/40px 24px repeat-x,
+             radial-gradient(circle at 20px 0,var(--forest) 19.5px,transparent 20px) 0 0/40px 24px repeat-x}
+.dusk::after{top:-24px;
+  background:radial-gradient(circle at 20px 24px,transparent 21.5px,rgba(179,149,102,.8) 22px,rgba(179,149,102,.8) 22.8px,transparent 23.3px) 0 0/40px 24px repeat-x,
+             radial-gradient(circle at 20px 24px,var(--forest) 19.5px,transparent 20px) 0 0/40px 24px repeat-x}
+.greet .deco{color:var(--gold-light)}
+.greet h2{color:var(--gold-light)}
+.greet .lead{color:var(--on-dark)}
+.greet .we{font-family:var(--f-display);font-size:clamp(26px,6.6vw,32px);letter-spacing:.04em;margin-top:18px}
+/* разделы со светлым шалфеем: мягкий вход и выход без резких границ */
+.sage-in,.sage-out,.rsvp{--bg:var(--sage)}
+.sage-in{background:linear-gradient(to bottom,var(--paper),var(--sage) 140px)}
+.sage-out{background:linear-gradient(to bottom,var(--sage) calc(100% - 140px),var(--paper))}
+/* финал: светлое уходит обратно в тёмно-зелёный подвал */
+.dusk{position:relative;z-index:2;color:var(--on-dark);background:var(--forest);padding-top:clamp(44px,8vw,60px)}
+.dusk .eyebrow{color:var(--gold-light)}
+
+/* ---- kids → us (pinned scene) ---- */
+.morph{position:relative;height:250vh;padding-block:46px 0;background:linear-gradient(to bottom,var(--sage),var(--paper) 45%);--bg:#F2F1EA}
+/* сцена по высоте своего содержимого и закрепляется по центру экрана — без пустых полей сверху и снизу */
+.morph .stage{position:sticky;top:var(--st,0px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(10px,2vh,20px);overflow:hidden;text-align:center;padding:clamp(14px,2.4vh,26px) 20px}
+.morph .deco{margin-bottom:0}
+.mtitle{position:relative;width:min(520px,100%);min-height:2.7em}
+.mtitle p{position:absolute;inset:0;margin:0;display:flex;align-items:center;justify-content:center;font-style:italic;font-size:clamp(23px,5.8vw,30px);line-height:1.3;color:var(--forest);text-wrap:balance}
+.pair{position:relative;width:min(600px,100%);height:min(62svh,440px);max-width:100%}
+.mf{position:absolute;top:2%;width:44%;height:96%;will-change:transform,opacity}
+.mf.a{left:2%}
+.mf.t{right:2%}
+@media (max-width:599px){
+  /* на телефоне — коллаж «лесенкой»: фото крупнее, экран заполнен */
+  .pair{height:min(118vw,58svh)}
+  .mf{width:57%;height:61%}
+  .mf.a{left:0;top:0}
+  .mf.t{right:0;top:auto;bottom:0}
+  .mf.a .cap{text-align:left;padding-left:6px}
+  .mf.t .cap{text-align:right;padding-right:6px}
+}
+.frame{position:absolute;inset:0 0 32px;border-radius:999px 999px 4px 4px;overflow:hidden;box-shadow:0 0 0 1px var(--gold),0 0 0 6px var(--bg),0 0 0 7px rgba(179,149,102,.5),0 14px 30px rgba(42,36,34,.12)}
+.frame > div{position:absolute;inset:0}
+.mf .cap{position:absolute;left:0;right:0;bottom:0;height:30px;font-style:italic;font-size:22px;color:var(--ink)}
+.mf .cap span{position:absolute;left:0;right:0}
+.together{position:absolute;left:50%;top:50%;width:94%;max-width:520px;aspect-ratio:3/2;transform:translate(-50%,-50%) scale(.8);opacity:0;will-change:transform,opacity}
+.progress{width:120px;height:1px;background:var(--line);overflow:hidden}
+.progress i{display:block;height:100%;width:100%;background:var(--gold);transform-origin:left;transform:scaleX(0)}
+.mfoot{display:flex;flex-direction:column;align-items:center;gap:4px;color:var(--muted)}
+.mfoot svg{width:15px;height:15px;animation:bob 2.4s ease-in-out infinite}
+.morph.static{height:auto}
+.morph.static .stage{position:static;height:auto;padding-block:40px}
+
+/* ---- calendar ---- */
+.cal{position:relative;margin:26px auto 0;max-width:350px;padding:30px 22px 24px;border:1px solid var(--gold);background:#fff}
+.cal::before{content:"";position:absolute;inset:5px;border:1px solid rgba(179,149,102,.45);pointer-events:none}
+.cal .cn{position:absolute;width:30px;height:30px;color:var(--gold)}
+.cal .cn.tl{left:-1px;top:-1px}.cal .cn.tr{right:-1px;top:-1px;transform:scaleX(-1)}
+.cal .cn.bl{left:-1px;bottom:-1px;transform:scaleY(-1)}.cal .cn.br{right:-1px;bottom:-1px;transform:scale(-1,-1)}
+.cal .fan{display:block;width:90px;margin:-6px auto 4px;color:var(--gold)}
+.cal h3{font-family:var(--f-display);font-weight:400;font-size:15px;letter-spacing:.4em;text-transform:uppercase;margin:0 0 4px;color:var(--forest)}
+.cal .yr{font-style:italic;color:var(--muted);font-size:17px;margin-bottom:14px}
+.cal .grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;font-variant-numeric:lining-nums tabular-nums}
+.cal .grid span{height:40px;display:grid;place-items:center;font-size:18px;position:relative}
+.cal .grid .wd{font-family:var(--f-display);font-size:10px;color:var(--gold);letter-spacing:.12em;height:24px;text-transform:uppercase;border-bottom:1px solid var(--line);margin-bottom:6px}
+.cal .grid .we{color:var(--wine)}
+.cal .grid .big{color:var(--on-dark);z-index:0;font-weight:500}
+.cal .grid .big::before{content:"";position:absolute;width:30px;height:30px;left:50%;top:50%;transform:translate(-50%,-50%) rotate(45deg);background:var(--wine);z-index:-1}
+.cal .grid .big::after{content:"";position:absolute;width:38px;height:38px;left:50%;top:50%;transform:translate(-50%,-50%) rotate(45deg);border:1px solid var(--gold);z-index:-1;animation:breathe 3.2s ease-in-out infinite}
+@keyframes breathe{50%{transform:translate(-50%,-50%) rotate(45deg) scale(1.12);opacity:.5}}
+.cal .grid .big svg{position:absolute;left:50%;top:50%;width:58px;height:58px;transform:translate(-50%,-50%);color:var(--gold);z-index:-2;opacity:.55;animation:rot 30s linear infinite}
+@keyframes rot{to{transform:translate(-50%,-50%) rotate(360deg)}}
+.cal .caption{margin-top:16px;font-style:italic;color:var(--wine);font-size:19px}
+
+/* ---- timeline ---- */
+.timeline{list-style:none;margin:24px auto 0;padding:0;position:relative;max-width:420px}
+.timeline .rail,.timeline .fill{position:absolute;left:84px;top:16px;bottom:16px;width:1px}
+.timeline .rail{background:var(--line)}
+.timeline .fill{background:var(--gold);transform-origin:top;transform:scaleY(0)}
+.timeline li{display:grid;grid-template-columns:66px 1fr;gap:36px;padding:11px 0;position:relative;align-items:center}
+.timeline li::before{content:"";position:absolute;left:80px;top:50%;width:9px;height:9px;margin-top:-4.5px;transform:rotate(45deg);background:var(--bg);border:1px solid var(--line);transition:all .6s var(--ease)}
+.timeline li.on::before{border-color:var(--wine);background:var(--wine);box-shadow:0 0 0 4px var(--bg),0 0 0 5px var(--gold)}
+.timeline time{font-family:var(--f-display);font-size:22px;color:var(--forest);font-variant-numeric:lining-nums tabular-nums;text-align:right;letter-spacing:.04em}
+.timeline strong{font-weight:500;font-size:21px}
+
+/* ---- place ---- */
+.venue{margin-top:30px;background:var(--forest);color:var(--on-dark);padding:30px 24px;display:flex;flex-direction:column;gap:6px;position:relative;overflow:hidden;text-align:center;align-items:center}
+.venue::before{content:"";position:absolute;inset:0;background:var(--waves);background-size:48px 24px;opacity:.1}
+.venue::after{content:"";position:absolute;inset:7px;border:1px solid rgba(216,195,155,.45);pointer-events:none}
+.venue > *{position:relative}
+.venue h3{font-family:var(--f-display);font-weight:400;font-size:26px;margin:0;letter-spacing:.06em}
+.venue p{margin:0;color:var(--on-dark-muted);font-size:18px;max-width:30ch}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:13px 22px;font:12px/1 var(--f-display);letter-spacing:.22em;text-transform:uppercase;text-decoration:none;cursor:pointer;border:0;transition:transform .2s var(--ease),background .25s,color .25s}
+.btn:active{transform:scale(.97)}
+.btn.gold{border:1px solid var(--gold-light);color:var(--on-dark);background:transparent;margin-top:16px}
+.btn.gold:hover{background:var(--gold-light);color:var(--forest)}
+.btn.wine{background:var(--wine);color:var(--on-dark);width:100%;padding:19px 20px;font-size:13px}
+.btn.wine:hover{background:var(--wine-2)}
+.btn.ghost{background:transparent;color:var(--wine);border:1px solid var(--wine)}
+.carnote{margin:18px auto 0;padding:16px 18px;border:1px solid var(--line);background:#fff;font-size:18px;line-height:1.45;display:flex;gap:14px;align-items:flex-start;text-align:left}
+.carnote svg{flex:none;width:30px;height:30px;color:var(--gold);margin-top:2px}
+
+/* ---- dress code ---- */
+.palette{display:grid;grid-template-columns:repeat(3,1fr);gap:18px 10px;margin:28px auto 0;max-width:380px}
+.sw{display:flex;flex-direction:column;align-items:center;gap:8px;font-size:16px;color:var(--muted)}
+.sw i{width:58px;height:58px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.06),0 0 0 4px var(--bg),0 0 0 5px rgba(179,149,102,.55);transition:transform .5s var(--ease)}
+.sw:hover i{transform:translateY(-4px)}
+.tabs{display:inline-flex;border:1px solid var(--gold);padding:3px;margin-top:34px}
+.tabs button{border:0;background:none;padding:9px 20px;font:12px var(--f-display);letter-spacing:.2em;text-transform:uppercase;color:var(--muted);cursor:pointer;transition:all .3s var(--ease)}
+.tabs button.on{background:var(--forest);color:var(--on-dark)}
+.looks{margin-top:20px;position:relative}
+.track{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:8px 0 12px;scrollbar-width:none;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
+.track::-webkit-scrollbar{display:none}
+.look{flex:0 0 68%;max-width:290px;scroll-snap-align:center;aspect-ratio:3/4;border-radius:999px 999px 4px 4px;overflow:hidden;box-shadow:0 0 0 1px var(--gold);transition:transform .5s var(--ease),opacity .5s;transform:scale(.92);opacity:.6}
+.look.cur{transform:none;opacity:1}
+.look:first-child{margin-left:16%}
+.look:last-child{margin-right:16%}
+.carnav{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:8px}
+.carnav button{width:38px;height:38px;border:1px solid var(--gold);background:transparent;color:var(--forest);cursor:pointer;display:grid;place-items:center;transform:rotate(45deg);transition:background .25s}
+.carnav button svg{transform:rotate(-45deg)}
+.carnav button:hover:not(:disabled){background:#fff}
+.carnav button:disabled{opacity:.3;cursor:default}
+.dots{display:flex;gap:8px;align-items:center}
+.dots i{width:6px;height:6px;transform:rotate(45deg);background:var(--line);transition:all .3s}
+.dots i.on{background:var(--wine);transform:rotate(45deg) scale(1.4)}
+
+/* ---- details ---- */
+.details{display:grid;gap:14px;margin-top:30px}
+.detail{background:#fff;border:1px solid var(--line);padding:28px 22px 26px;text-align:center;position:relative}
+.detail::before{content:"";position:absolute;inset:5px;border:1px solid rgba(179,149,102,.3);pointer-events:none}
+.detail .icon{width:44px;height:44px;color:var(--gold);display:block;margin:0 auto 12px}
+.detail h3{font-family:var(--f-display);font-weight:400;font-size:20px;letter-spacing:.06em;margin:0;color:var(--forest)}
+.detail p{margin:10px 0 0;font-size:19px}
+.detail.wide{display:flex;align-items:center;gap:22px;text-align:left;padding:26px 28px}
+.detail.wide .icon{margin:0;flex:none;width:54px;height:54px}
+.detail.wide p{margin:0}
+@media (max-width:420px){ .detail.wide{gap:16px;padding:22px 20px} .detail.wide .icon{width:42px;height:42px} }
+
+/* ---- rsvp ---- */
+.rsvp{background:linear-gradient(to bottom,var(--paper),var(--sage) 140px);padding-bottom:calc(clamp(40px,7vw,64px) + 22px)}
+form{margin-top:30px;display:flex;flex-direction:column;gap:30px}
+fieldset{border:0;margin:0;padding:0;min-width:0}
+legend{font-family:var(--f-display);font-size:18px;letter-spacing:.02em;color:var(--forest);padding:0;margin-bottom:12px;line-height:1.35}
+.choices{display:flex;flex-direction:column;gap:8px}
+.choices.row{flex-direction:row;flex-wrap:wrap}
+.choices.row .choice{flex:1 1 120px}
+.choice{position:relative}
+.choice input{position:absolute;opacity:0;pointer-events:none}
+.choice label{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--line);padding:14px 16px;cursor:pointer;font-size:19px;transition:border-color .2s,background .2s}
+.choice label::before{content:"";width:11px;height:11px;transform:rotate(45deg);border:1px solid var(--muted);flex:none;transition:all .2s;margin:0 3px}
+.choice input:checked + label{border-color:var(--wine);background:#FCF8F6}
+.choice input:checked + label::before{background:var(--wine);border-color:var(--wine);box-shadow:0 0 0 3px #FCF8F6,0 0 0 4px var(--gold)}
+.choice input:focus-visible + label{outline:2px solid var(--wine);outline-offset:2px}
+.slide{display:grid;grid-template-rows:1fr;transition:grid-template-rows .55s var(--ease),opacity .45s}
+.slide > div{overflow:hidden;min-height:0;display:flex;flex-direction:column;gap:30px}
+.slide.closed{grid-template-rows:0fr;opacity:0}
+.person{background:#fff;border:1px solid var(--line);padding:12px 14px;margin-bottom:10px;transition:opacity .25s}
+.person.off{opacity:.55}
+.phead{display:flex;align-items:center;gap:10px;font-size:20px;cursor:pointer}
+.phead input{width:18px;height:18px;accent-color:var(--wine);flex:none}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;pointer-events:none}
+.chip label{display:inline-block;border:1px solid var(--line);padding:5px 12px;font-size:17px;cursor:pointer;background:var(--paper);transition:all .15s;user-select:none}
+.chip input:checked + label{background:var(--forest);border-color:var(--forest);color:var(--on-dark)}
+.chip input:focus-visible + label{outline:2px solid var(--wine);outline-offset:2px}
+.person.off .chips{display:none}
+.txt{width:100%;border:1px solid var(--line);padding:12px 14px;font:inherit;font-size:19px;background:#fff;color:var(--ink);border-radius:0}
+.txt:focus{border-color:var(--forest);outline:none}
+.sub{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s var(--ease),opacity .35s;opacity:0}
+.sub > div{overflow:hidden;min-height:0}
+.sub.open{grid-template-rows:1fr;opacity:1}
+.sub .txt{margin-top:8px}
+.hint{font-size:16px;color:var(--muted);margin-top:6px}
+.addp{margin-top:4px;background:none;border:1px dashed var(--muted);padding:10px;width:100%;font:17px var(--f-body);color:var(--muted);cursor:pointer}
+.err{color:var(--wine);font-size:17px;margin:-14px 0 0}
+.done{background:#fff;border:1px solid var(--gold);padding:30px 20px;text-align:center;margin-top:30px;animation:rise .8s var(--ease)}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}}
+.done h3{font-family:var(--f-display);font-weight:400;color:var(--wine);font-size:26px;margin:0 0 10px;letter-spacing:.04em}
+.done p{margin:0 0 6px}
+.burst{position:fixed;pointer-events:none;z-index:30;width:10px;height:10px}
+
+/* ---- countdown ---- */
+.count{display:grid;grid-template-columns:repeat(4,1fr);margin-top:26px;border-top:1px solid var(--gold);border-bottom:1px solid var(--gold)}
+.count div{display:flex;flex-direction:column;align-items:center;padding:18px 4px;overflow:hidden;position:relative}
+.count div + div::before{content:"";position:absolute;left:0;top:30%;bottom:30%;width:1px;background:var(--line)}
+.count b{font-family:var(--f-display);font-weight:400;font-size:34px;line-height:1;color:var(--forest);font-variant-numeric:lining-nums tabular-nums;display:block}
+.count b.tick{animation:tick .5s var(--ease)}
+@keyframes tick{from{transform:translateY(-40%);opacity:.2}}
+.count span{font-size:16px;color:var(--muted);margin-top:8px;font-style:italic}
+.dusk .count{border-color:rgba(216,195,155,.55)}
+.dusk .count b{color:var(--on-dark)}
+.dusk .count span{color:var(--on-dark-muted)}
+.dusk .count div + div::before{background:rgba(216,195,155,.25)}
+
+footer{background:var(--forest);color:var(--on-dark);text-align:center;position:relative;overflow:hidden}
+footer .wrap{padding-block:52px 64px;position:relative;z-index:1}
+footer .deco{color:var(--gold-light)}
+footer .bye{font-family:var(--f-display);font-size:clamp(32px,9vw,44px);letter-spacing:.04em}
+footer p{color:var(--on-dark-muted);margin:12px 0 0;font-style:italic;font-size:21px}
+
+@media (min-width:760px){
+  .look{flex-basis:44%}
+  .look:first-child{margin-left:28%}
+  .look:last-child{margin-right:28%}
+}
+@media (max-width:380px){ .count b{font-size:28px} .timeline li{grid-template-columns:58px 1fr;gap:30px} .timeline .rail,.timeline .fill{left:73px} .timeline li::before{left:69px} }
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .medal .arrow,.mfoot svg,.cal .grid .big::after,.cal .grid .big svg{animation:none}
+  .track{scroll-behavior:auto}
+}
+</style>
+
+</head>
+<body>
+<!-- ЧЕРНОВИК: полоска видна только в режиме DRAFT -->
+<div class="draft" id="draftBar" hidden>
+  <div class="wrap">
+    <b>Черновик.</b> Гость:
+    <button type="button" data-fam="">Без имени</button>
+    <button type="button" data-fam="primer">Персональная ссылка</button>
+    <span class="sep"></span>
+    Шрифт заголовков:
+    <button type="button" data-font="tenor">Tenor Sans</button>
+    <button type="button" data-font="forum">Forum</button>
+    <button type="button" data-font="prata">Prata</button>
+  </div>
+</div>
+
+<header class="cover" id="cover">
+  <svg class="corner tl" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><use href="#corner"/></svg>
+  <svg class="corner tr" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><use href="#corner"/></svg>
+  <svg class="corner bl" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><use href="#corner"/></svg>
+  <svg class="corner br" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><use href="#corner"/></svg>
+  <div class="wrap">
+    <div class="hero" data-reveal="zoom" style="--d:.05s">
+      <svg class="hc tl" viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><use href="#calcorner"/></svg>
+      <svg class="hc tr" viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><use href="#calcorner"/></svg>
+      <svg class="hc bl" viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><use href="#calcorner"/></svg>
+      <svg class="hc br" viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><use href="#calcorner"/></svg>
+      <div class="pic"><div class="inner" id="coverPhoto"></div></div>
+    </div>
+    <h1 class="names" data-reveal style="--d:.25s">Алексей<span class="amp">&amp;</span>Татьяна</h1>
+    <div class="date" data-reveal style="--d:.4s"><i></i>22 · 08 · 2027<i></i></div>
+    <button class="medal" id="openBtn" type="button" data-reveal style="--d:.55s">
+      <span class="m"><svg viewBox="0 0 82 82" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><rect x="12" y="12" width="58" height="58" transform="rotate(45 41 41)"/><rect x="17" y="17" width="48" height="48" transform="rotate(45 41 41)"/><circle cx="41" cy="41" r="22"/></svg><span>А&amp;Т</span></span>
+      Открыть приглашение
+      <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="main" class="gated">
+  <section class="greet center" id="hello">
+    <div class="wrap">
+      <svg class="deco" data-reveal viewBox="0 0 150 30" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><use href="#divider"/></svg>
+      <h2 id="greeting" data-reveal>Дорогие родные и друзья!</h2>
+      <p class="lead we" data-reveal style="--d:.15s">Мы женимся!</p>
+      <p class="lead" data-reveal style="--d:.3s">Этот важный и трепетный день мы были бы рады разделить с самыми любимыми и близкими — с вами!</p>
+    </div>
+  </section>
+
+  <!-- Детские фото → общее фото: закреплённая сцена, управляется прокруткой -->
+  <section class="morph" id="morph" aria-label="Детские фото и наше общее фото">
+    <div class="stage">
+      <svg class="deco" viewBox="0 0 150 30" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><use href="#divider"/></svg>
+      <div class="mtitle"><p>Здесь они ещё не знали, что создадут что-то общее…</p></div>
+      <div class="pair" id="pair">
+        <div class="mf a" id="mfA"><div class="frame"><div id="kidA"></div><div id="adultA" style="opacity:0"></div></div><div class="cap"><span id="capA1">Лёша</span><span id="capA2" style="opacity:0">Алексей</span></div></div>
+        <div class="mf t" id="mfT"><div class="frame"><div id="kidT"></div><div id="adultT" style="opacity:0"></div></div><div class="cap"><span id="capT1">Таня</span><span id="capT2" style="opacity:0">Татьяна</span></div></div>
+        <div class="together hero light" id="together">
+          <svg class="hc tl" viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><use href="#calcorner"/></svg>
+          <svg class="hc tr" viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><use href="#calcorner"/></svg>
+          <svg class="hc bl" viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><use href="#calcorner"/></svg>
+          <svg class="hc br" viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><use href="#calcorner"/></svg>
+          <div class="pic" id="couplePic"></div>
+        </div>
+      </div>
+      <div class="mfoot" aria-hidden="true"><div class="progress"><i id="mProg"></i></div><svg id="mHint" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></div>
+    </div>
+  </section>
+
+  <section class="center">
+    <div class="wrap">
+      <div class="eyebrow" data-reveal>Дата</div>
+      <h2 data-reveal>22 августа 2027</h2>
+      <div class="cal" data-reveal="zoom" style="--d:.1s">
+        <svg class="cn tl" viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><use href="#calcorner"/></svg>
+        <svg class="cn tr" viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><use href="#calcorner"/></svg>
+        <svg class="cn bl" viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><use href="#calcorner"/></svg>
+        <svg class="cn br" viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><use href="#calcorner"/></svg>
+        <div class="grid" id="calGrid"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sage-in">
+    <div class="wrap">
+      <div class="center"><div class="eyebrow" data-reveal>22 августа</div><h2 data-reveal>Программа дня</h2></div>
+      <ol class="timeline" id="timeline">
+        <span class="rail" aria-hidden="true"></span><span class="fill" id="tlFill" aria-hidden="true"></span>
+        <li data-reveal><time>14:00</time><strong>Сбор гостей и фуршет</strong></li>
+        <li data-reveal><time>14:45</time><strong>Выездная церемония</strong></li>
+        <li data-reveal><time>15:30</time><strong>Праздничный банкет</strong></li>
+        <li data-reveal><time>20:30</time><strong>Завершение банкета<br>Начало дискотеки</strong></li>
+        <li data-reveal><time>22:00</time><strong>Завершение вечера</strong></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="sage-out">
+    <div class="wrap">
+      <div class="center"><div class="eyebrow" data-reveal>Место</div><h2 data-reveal>Где мы встречаемся</h2></div>
+      <div class="venue" data-reveal="zoom">
+        <h3>Pirogovo Event</h3>
+        <p>Шатёр White Podium на берегу Пироговского водохранилища</p>
+        <p>Московская обл., г.о. Мытищи, д. Пирогово, 1-й Пироговский залив</p>
+        <a class="btn gold" href="https://yandex.ru/maps/org/pirogovo_event/1716177088" target="_blank" rel="noopener">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+          Открыть в Яндекс Картах
+        </a>
+      </div>
+      <div class="carnote" data-reveal>
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 20v-5l3-6h16l3 6v5z"/><path d="M5 15h22"/><circle cx="10" cy="20.5" r="2.5"/><circle cx="22" cy="20.5" r="2.5"/></svg>
+        <span>Если вы поедете на собственном автомобиле, пожалуйста, сообщите нам заранее марку и номер машины, чтобы вас пропустила охрана на въезде. Это можно сделать в анкете ниже.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="center">
+    <div class="wrap">
+      <div class="eyebrow" data-reveal>Дресс-код</div>
+      <h2 data-reveal>Цвета праздника</h2>
+      <p class="muted" data-reveal style="margin:14px auto 0;max-width:34ch">Будем рады, если вы поддержите палитру нашей свадьбы в своих образах.</p>
+      <div class="palette">
+        <div class="sw" data-reveal="zoom" style="--d:0s"><i style="background:#6E1F2E"></i>бордовый</div>
+        <div class="sw" data-reveal="zoom" style="--d:.06s"><i style="background:#1F3A2E"></i>тёмно-зелёный</div>
+        <div class="sw" data-reveal="zoom" style="--d:.12s"><i style="background:#6F7046"></i>оливковый</div>
+        <div class="sw" data-reveal="zoom" style="--d:.18s"><i style="background:#6B4A36"></i>коричневый</div>
+        <div class="sw" data-reveal="zoom" style="--d:.24s"><i style="background:#D6BF9E"></i>бежевый</div>
+        <div class="sw" data-reveal="zoom" style="--d:.3s"><i style="background:#E9CFC8"></i>нежно-розовый</div>
+      </div>
+      <div class="tabs" role="tablist" data-reveal>
+        <button type="button" role="tab" class="on" data-look="her" aria-selected="true">Для неё</button>
+        <button type="button" role="tab" data-look="him" aria-selected="false">Для него</button>
+      </div>
+      <div class="looks" data-reveal>
+        <div class="track" id="track" tabindex="0" aria-label="Примеры образов"></div>
+        <div class="carnav"><button type="button" id="prev" aria-label="Предыдущий образ"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M15 6l-6 6 6 6"/></svg></button>
+          <div class="dots" id="dots"></div>
+          <button type="button" id="next" aria-label="Следующий образ"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="center"><div class="eyebrow" data-reveal>Детали</div><h2 data-reveal>Полезно знать</h2></div>
+      <div class="details">
+        <div class="detail wide" data-reveal>
+          <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 44V20"/><path d="M24 20c-6-2-9-7-9-13 4 1 7 3 9 6 2-3 5-5 9-6 0 6-3 11-9 13z"/><path d="M24 34c-4 0-8-2-10-6 4-1 8 1 10 4"/><path d="M24 30c4 0 7-2 9-5-4-1-7 1-9 3"/></svg>
+          <div><p>Мы очень любим цветы, но не успеем ими насладиться: сразу после свадьбы мы уезжаем в свадебное путешествие.</p></div>
+        </div>
+        <div class="detail wide" data-reveal style="--d:.1s">
+          <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 24a10 10 0 0 1 20 0"/><path d="M24 8v4M13.5 12.5l2.5 3M34.5 12.5l-2.5 3M8 20h4M36 20h4"/><path d="M6 30c3-2.4 6-2.4 9 0s6 2.4 9 0 6-2.4 9 0 6 2.4 9 0"/><path d="M6 36c3-2.4 6-2.4 9 0s6 2.4 9 0 6-2.4 9 0 6 2.4 9 0"/><path d="M10 42c2.5-2 5-2 7.5 0s5 2 7.5 0 5-2 7.5 0 5 2 7.5 0"/></svg>
+          <div><p>У площадки есть свой выход к воде — не забудьте захватить сменную одежду, если захотите освежиться.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="rsvp" id="rsvp">
+    <div class="wrap">
+      <div class="center"><div class="eyebrow" data-reveal>Анкета гостя</div><h2 data-reveal>Нам важен ваш ответ</h2>
+        <p class="muted" data-reveal style="margin:12px auto 0;max-width:34ch">Так нам будет проще всё подготовить. Ответ можно изменить в любой момент.</p></div>
+
+      <form id="form" novalidate data-reveal>
+        <fieldset>
+          <legend>Сможете ли вы прийти?</legend>
+          <div class="choices">
+            <div class="choice"><input type="radio" name="att" id="attYes" value="yes"><label for="attYes">Да, с радостью!</label></div>
+            <div class="choice"><input type="radio" name="att" id="attMaybe" value="maybe"><label for="attMaybe">Возможно, пока не определились</label></div>
+            <div class="choice"><input type="radio" name="att" id="attNo" value="no"><label for="attNo">К сожалению, не сможем</label></div>
+          </div>
+        </fieldset>
+
+        <div class="slide closed" id="moreSlide"><div>
+          <fieldset>
+            <legend id="whoLegend">Кто будет и что вы предпочитаете из напитков?</legend>
+            <div id="people"></div>
+            <button type="button" class="addp" id="addPerson" hidden>+ Добавить ещё одного гостя</button>
+            <p class="hint">Отметьте всё, что нравится.</p>
+          </fieldset>
+
+          <fieldset>
+            <legend>Есть ли у кого-то из вас аллергия или особенности питания?</legend>
+            <div class="choices row">
+              <div class="choice"><input type="radio" name="alg" id="algNo" value="no"><label for="algNo">Нет</label></div>
+              <div class="choice"><input type="radio" name="alg" id="algYes" value="yes"><label for="algYes">Да</label></div>
+            </div>
+            <div class="sub" id="algSub"><div><input class="txt" id="algText" placeholder="Например: орехи, цитрусовые, не ем мясо" aria-label="Аллергия или особенности питания"></div></div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Приедете на своей машине?</legend>
+            <div class="choices row">
+              <div class="choice"><input type="radio" name="car" id="carNo" value="no"><label for="carNo">Нет</label></div>
+              <div class="choice"><input type="radio" name="car" id="carYes" value="yes"><label for="carYes">Да</label></div>
+            </div>
+            <div class="sub" id="carSub"><div><input class="txt" id="carText" placeholder="Марка и номер, например: Kia Rio, А123ВС 777" aria-label="Марка и номер машины"><p class="hint">Передадим охране, чтобы вас пропустили на въезде.</p></div></div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Хотите что-то добавить?</legend>
+            <textarea class="txt" id="note" rows="3" placeholder="Необязательно"></textarea>
+          </fieldset>
+        </div></div>
+
+        <p class="err" id="err" hidden></p>
+        <button type="submit" class="btn wine" id="send">Отправить ответ</button>
+      </form>
+
+      <div class="done" id="done" hidden>
+        <h3 id="doneTitle">Спасибо!</h3>
+        <p id="doneText"></p>
+        <p class="hint" id="draftNote" hidden>Это черновик: ответ пока никуда не отправлен. После запуска сайта ответы будут приходить вам в таблицу.</p>
+        <button type="button" class="btn ghost" id="edit" style="margin-top:14px">Изменить ответ</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="center dusk" id="dusk">
+    <div class="wrap">
+      <div class="eyebrow" data-reveal>До праздника осталось</div>
+      <div class="count" data-reveal="zoom">
+        <div><b id="cD">—</b><span id="lD">дней</span></div>
+        <div><b id="cH">—</b><span id="lH">часов</span></div>
+        <div><b id="cM">—</b><span id="lM">минут</span></div>
+        <div><b id="cS">—</b><span id="lS">секунд</span></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="foot" class="gated">
+  <svg class="corner tl" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><use href="#corner"/></svg>
+  <svg class="corner tr" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><use href="#corner"/></svg>
+  <svg class="corner bl" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><use href="#corner"/></svg>
+  <svg class="corner br" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><use href="#corner"/></svg>
+  <div class="wrap">
+    <svg class="deco" data-reveal viewBox="0 0 150 30" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><use href="#divider"/></svg>
+    <div class="bye" data-reveal>До встречи!</div>
+    <p data-reveal style="--d:.15s">С любовью, Алексей и Татьяна</p>
+  </div>
+</footer>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <g id="divider">
+      <path pathLength="1" d="M0 15H52"/><path pathLength="1" d="M98 15H150"/>
+      <path pathLength="1" d="M12 19H48"/><path pathLength="1" d="M102 19H138"/>
+      <path pathLength="1" d="M75 4l11 11-11 11-11-11z"/>
+      <path pathLength="1" d="M75 9l6 6-6 6-6-6z"/>
+      <circle pathLength="1" cx="58" cy="15" r="1.5"/><circle pathLength="1" cx="92" cy="15" r="1.5"/>
+    </g>
+    <g id="sunburst">
+      <path d="M150 150L150 10M150 150L106 16M150 150L194 16M150 150L66 34M150 150L234 34M150 150L36 62M150 150L264 62M150 150L16 96M150 150L284 96M150 150L4 132M150 150L296 132"/>
+      <path d="M128 150a22 22 0 0 1 44 0"/>
+    </g>
+    <g id="fan">
+      <path d="M45 28L45 4M45 28L33 6M45 28L57 6M45 28L23 12M45 28L67 12M45 28L16 21M45 28L74 21"/>
+      <path d="M21 28a24 24 0 0 1 48 0M29 28a16 16 0 0 1 32 0M37 28a8 8 0 0 1 16 0"/>
+      <path d="M2 28H88"/>
+    </g>
+    <g id="corner">
+      <path d="M0 52V0h52"/><path d="M8 40V8h32"/><path d="M14 26V14h12"/>
+      <rect x="17" y="17" width="6" height="6" transform="rotate(45 20 20)"/>
+      <path d="M0 62a14 14 0 0 1 14-14M62 0a14 14 0 0 0-14 14"/>
+    </g>
+    <g id="calcorner">
+      <path d="M0 22V0h22M5 14V5h9"/><rect x="8.5" y="8.5" width="3" height="3" transform="rotate(45 10 10)"/>
+    </g>
+  </defs>
+</svg>
+
+<script>
+(() => {
+'use strict';
+// ================= НАСТРОЙКИ =================
+const DRAFT = false;                 // черновик: полоска сверху, ответы никуда не уходят
+const RSVP_ENDPOINT = '';           // адрес Google-таблицы (Apps Script) — вставим при запуске
+const EVENT = new Date('2027-08-22T14:00:00+03:00');
+// Фото: путь к файлу (например 'img/cover.jpg') или пусто — тогда заглушка
+const PHOTOS = {
+  cover:'', kidA:'', kidT:'', adultA:'', adultT:'', couple:'',
+  her:['','','','',''],   // образы для девушек
+  him:['','','','']       // образы для мужчин
+};
+// Семьи: ключ из ссылки (сайт/#ключ) → обращение и состав. Заполним по вашему списку.
+const FAMILIES = {};
+const DRINKS = ['Красное вино','Белое вино','Игристое','Водка','Коньяк','Виски','Без алкоголя'];
+// ============================================
+
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const clamp = (v,a=0,b=1) => Math.max(a, Math.min(b, v));
+const ease = t => t<.5 ? 2*t*t : 1 - Math.pow(-2*t+2, 2)/2;
+const seg = (p, a, b) => ease(clamp((p - a) / (b - a)));
+const store = { get(k){ try{ return JSON.parse(localStorage.getItem(k)); }catch(e){ return null; } }, set(k,v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} } };
+const RM = (() => { try{ return matchMedia('(prefers-reduced-motion: reduce)').matches; }catch(e){ return false; } })();
+
+// ---------- фото ----------
+const cam = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="14" rx="1"/><circle cx="12" cy="13" r="3.5"/><path d="M8.5 6l1.5-2h4l1.5 2"/></svg>';
+function photo(el, src, label, tone){
+  el.innerHTML = src ? `<img class="ph-img" src="${esc(src)}" alt="${esc(label)}" loading="lazy">` : `<div class="ph ${tone||''}">${cam}<span>${esc(label)}</span></div>`;
+}
+photo($('coverPhoto'), PHOTOS.cover, 'Здесь будет ваше общее фото', 'dark');
+photo($('kidA'), PHOTOS.kidA, 'Лёша в детстве', 'kid');
+photo($('kidT'), PHOTOS.kidT, 'Таня в детстве', 'kid');
+photo($('adultA'), PHOTOS.adultA, 'Алексей сейчас', 'adult');
+photo($('adultT'), PHOTOS.adultT, 'Татьяна сейчас', 'adult');
+photo($('couplePic'), PHOTOS.couple, 'Ваше общее фото', 'couple');
+
+// ---------- календарь: август 2027 ----------
+(() => {
+  const g = $('calGrid'); let h = ['пн','вт','ср','чт','пт','сб','вс'].map(d => `<span class="wd">${d}</span>`).join('');
+  const first = (new Date(2027,7,1).getDay() + 6) % 7;
+  for (let i=0;i<first;i++) h += '<span></span>';
+  const rays = '<svg viewBox="0 0 76 76" fill="none" stroke="currentColor" stroke-width=".6" aria-hidden="true">' +
+    Array.from({length:24}, (_, k) => { const a = k*Math.PI/12, r1 = k%2 ? 27 : 25, r2 = k%2 ? 32 : 37; return `<line x1="${(38+Math.cos(a)*r1).toFixed(2)}" y1="${(38+Math.sin(a)*r1).toFixed(2)}" x2="${(38+Math.cos(a)*r2).toFixed(2)}" y2="${(38+Math.sin(a)*r2).toFixed(2)}"/>`; }).join('') + '</svg>';
+  for (let d=1; d<=31; d++){
+    const wd = (first + d - 1) % 7;
+    h += d === 22 ? `<span class="big">${rays}22</span>` : `<span class="${wd>4?'we':''}">${d}</span>`;
+  }
+  g.innerHTML = h;
+})();
+
+// ---------- появление при прокрутке ----------
+const io = (!RM && 'IntersectionObserver' in window) ? new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting){ e.target.classList.add('in'); e.target.classList.remove('pre'); io.unobserve(e.target); }
+}), {rootMargin:'0px 0px -8% 0px', threshold:.12}) : null;
+function initReveal(root){
+  if (!io) return;
+  const vh = innerHeight;
+  root.querySelectorAll('[data-reveal]').forEach(el => {
+    el.classList.add('pre');
+    if (el.getBoundingClientRect().top > vh * .92) io.observe(el);
+    else requestAnimationFrame(() => requestAnimationFrame(() => { el.classList.add('in'); el.classList.remove('pre'); }));
+  });
+}
+initReveal($('cover'));
+
+// ---------- кнопка-медальон ----------
+// Пока гость не нажмёт «Открыть приглашение», остальной сайт скрыт и листать некуда.
+let opened = false;
+$('openBtn').addEventListener('click', () => {
+  const b = $('openBtn');
+  if (opened){ $('hello').scrollIntoView({behavior: RM ? 'auto' : 'smooth'}); return; }
+  opened = true;
+  b.classList.remove('pop'); void b.offsetWidth; b.classList.add('pop');
+  const main = $('main'), foot = $('foot');
+  setTimeout(() => {
+    main.classList.remove('gated'); foot.classList.remove('gated');
+    measure(); initReveal(main); initReveal(foot); renderLooks(); frame();
+    $('hello').scrollIntoView({behavior: RM ? 'auto' : 'smooth'});
+  }, RM ? 0 : 450);
+});
+
+// ---------- сцена: детские фото → общее фото ----------
+const morph = $('morph');
+if (RM) morph.classList.add('static');
+let geo = null, ch = 0, dh = 0, lastW = 0, lastH = 0;
+const M = {T:0, D:1, P:0};
+function measure(){
+  const pr = $('pair'), a = $('mfA'), t = $('mfT'), cx = pr.offsetWidth / 2, cy = pr.offsetHeight / 2;
+  geo = { dA: cx - (a.offsetLeft + a.offsetWidth/2), dT: cx - (t.offsetLeft + t.offsetWidth/2),
+          yA: cy - (a.offsetTop + a.offsetHeight/2), yT: cy - (t.offsetTop + t.offsetHeight/2) };
+  lastW = innerWidth; lastH = innerHeight;
+  if (!RM){
+    // сцена занимает ровно свою высоту и закрепляется по центру; длина прокрутки — полтора экрана
+    const st = morph.querySelector('.stage'), sh = st.offsetHeight;
+    M.P = parseFloat(getComputedStyle(morph).paddingTop) || 0;
+    M.T = Math.max(0, (lastH - sh) / 2); M.D = Math.round(lastH * 1.5);
+    st.style.setProperty('--st', M.T + 'px');
+    morph.style.height = (sh + M.D + M.P) + 'px';
+  }
+  ch = $('cover').offsetHeight; dh = $('dusk').offsetHeight;
+}
+const css = (id, o) => Object.assign($(id).style, o);
+function scene(p){
+  // 1) дети → взрослые (перетекание с размытием); 2) двое сближаются → проявляется общее фото
+  const m = seg(p, .08, .4), j = seg(p, .5, .78), out = seg(p, .6, .8), f = seg(p, .62, .9);
+  for (const k of ['A','T']){
+    css('kid'+k,   {opacity:1-m, filter:`blur(${m*6}px) sepia(${.15+m*.3})`, transform:`scale(${1+m*.08})`});
+    css('adult'+k, {opacity:m, filter:`blur(${(1-m)*6}px)`, transform:`scale(${1.08-m*.08})`});
+    css('cap'+k+'1', {opacity:1-m}); css('cap'+k+'2', {opacity:m*(1-seg(p,.5,.62))});
+  }
+  if (geo){
+    $('mfA').style.transform = `translate(${geo.dA * j * .8}px,${geo.yA * j * .8}px) rotate(${-j*5}deg) scale(${1 - j*.15})`;
+    $('mfT').style.transform = `translate(${geo.dT * j * .8}px,${geo.yT * j * .8}px) rotate(${j*5}deg) scale(${1 - j*.15})`;
+  }
+  $('mfA').style.opacity = $('mfT').style.opacity = 1 - out;
+  $('mfA').style.filter = $('mfT').style.filter = `blur(${out*5}px)`;
+  css('together', {opacity:f, transform:`translate(-50%,-50%) scale(${.8 + f*.2})`, filter:`blur(${(1-f)*6}px)`});
+  $('mHint').style.opacity = 1 - seg(p, 0, .1);
+  $('mProg').style.transform = `scaleX(${p})`;
+}
+if (RM) scene(1);
+
+const coverInner = $('coverPhoto'), cover = $('cover'), foot = $('foot'), greet = $('hello'), dusk = $('dusk');
+const tl = $('timeline'), tlFill = $('tlFill'), tlItems = [...tl.querySelectorAll('li')];
+let ticking = false;
+function frame(){
+  ticking = false;
+  const y = scrollY, vh = innerHeight;
+  // узор волн: шапка и обращение, подвал и финал сдвигаются согласованно, чтобы на стыках не было шва
+  const wy = RM ? 0 : y * .25, fy = RM ? 0 : -y * .08;
+  cover.style.setProperty('--wy', `${wy}px`); greet.style.setProperty('--wy', `${wy - ch}px`);
+  foot.style.setProperty('--wy', `${fy}px`); dusk.style.setProperty('--wy', `${fy + dh}px`);
+  if (!RM){
+    if (y < vh * 1.3) coverInner.style.transform = `translateY(${y * .12}px) scale(${1 + y * .00015})`;
+    const r = morph.getBoundingClientRect();
+    if (r.bottom > 0 && r.top < vh) scene(clamp((M.T - r.top - M.P) / M.D));
+  }
+  const tr = tl.getBoundingClientRect(), line = vh * .7;
+  tlFill.style.transform = `scaleY(${RM ? 1 : clamp((line - tr.top) / tr.height)})`;
+  tlItems.forEach(li => li.classList.toggle('on', RM || li.getBoundingClientRect().top + 20 < line));
+}
+function onScroll(){ if (!ticking){ ticking = true; requestAnimationFrame(frame); } }
+addEventListener('scroll', onScroll, {passive:true});
+addEventListener('resize', () => {
+  // на телефоне высота окна «прыгает» от адресной строки — пересчитываем только при заметном изменении
+  if (innerWidth !== lastW || Math.abs(innerHeight - lastH) > 150) measure();
+  onScroll();
+});
+measure(); frame();
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { measure(); frame(); });
+
+// ---------- карусель образов ----------
+let lookKind = 'her';
+const track = $('track');
+function renderLooks(){
+  const list = PHOTOS[lookKind];
+  track.innerHTML = list.map((_, i) => `<div class="look" data-i="${i}"></div>`).join('');
+  track.querySelectorAll('.look').forEach((el, i) => photo(el, list[i], `${lookKind==='her'?'Образ для неё':'Образ для него'} · ${i+1}`, lookKind==='her'?'kid':'couple'));
+  $('dots').innerHTML = list.map(() => '<i></i>').join('');
+  track.scrollLeft = 0; requestAnimationFrame(markCur);
+}
+function curIndex(){
+  const c = track.scrollLeft + track.clientWidth/2; let best = 0, bd = 1e9;
+  track.querySelectorAll('.look').forEach((el, i) => { const d = Math.abs(el.offsetLeft + el.offsetWidth/2 - c); if (d < bd){ bd = d; best = i; } });
+  return best;
+}
+function markCur(){
+  const i = curIndex(), looks = track.querySelectorAll('.look');
+  looks.forEach((el, k) => el.classList.toggle('cur', k === i));
+  $('dots').querySelectorAll('i').forEach((d, k) => d.classList.toggle('on', k === i));
+  $('prev').disabled = i === 0; $('next').disabled = i === looks.length - 1;
+}
+function go(dir){
+  const looks = track.querySelectorAll('.look'), i = clamp(curIndex() + dir, 0, looks.length - 1), el = looks[i];
+  track.scrollTo({left: el.offsetLeft + el.offsetWidth/2 - track.clientWidth/2, behavior: RM ? 'auto' : 'smooth'});
+}
+let st = 0; track.addEventListener('scroll', () => { cancelAnimationFrame(st); st = requestAnimationFrame(markCur); }, {passive:true});
+$('prev').onclick = () => go(-1); $('next').onclick = () => go(1);
+track.addEventListener('keydown', e => { if (e.key === 'ArrowLeft'){ e.preventDefault(); go(-1); } if (e.key === 'ArrowRight'){ e.preventDefault(); go(1); } });
+document.querySelectorAll('[data-look]').forEach(b => b.onclick = () => {
+  lookKind = b.dataset.look;
+  document.querySelectorAll('[data-look]').forEach(x => { x.classList.toggle('on', x === b); x.setAttribute('aria-selected', x === b); });
+  track.style.opacity = 0;
+  setTimeout(() => { renderLooks(); track.style.transition = 'opacity .35s'; track.style.opacity = 1; }, RM ? 0 : 180);
+});
+(() => { let down = null;   // мышкой можно тянуть карусель на компьютере
+  track.addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse') return; down = {x:e.clientX, s:track.scrollLeft}; track.style.scrollSnapType = 'none'; track.style.scrollBehavior = 'auto'; });
+  addEventListener('pointermove', e => { if (down) track.scrollLeft = down.s - (e.clientX - down.x); });
+  addEventListener('pointerup', () => { if (!down) return; down = null; track.style.scrollSnapType = ''; track.style.scrollBehavior = ''; go(0); });
+})();
+renderLooks();
+
+// ---------- семья по ссылке ----------
+let famKey = '', fam = null;
+function readFamily(){
+  const h = (location.hash || '').replace(/^#/, '');
+  let q = ''; try{ q = new URLSearchParams(location.search).get('g') || ''; }catch(e){}
+  return FAMILIES[q] ? q : FAMILIES[h] ? h : '';
+}
+function applyFamily(key){
+  famKey = key; fam = FAMILIES[key] || null;
+  $('greeting').textContent = fam ? fam.greet : 'Дорогие родные и друзья!';
+  document.querySelectorAll('#draftBar [data-fam]').forEach(b => b.classList.toggle('on', b.dataset.fam === key));
+  resetForm();
+}
+
+// ---------- обратный отсчёт ----------
+function plural(n, a, b, c){ const m10 = n%10, m100 = n%100; return m10===1&&m100!==11 ? a : (m10>=2&&m10<=4&&(m100<10||m100>=20)) ? b : c; }
+const prevV = {};
+function put(id, lid, v, forms){
+  const el = $(id);
+  if (prevV[id] !== v){ el.textContent = v; if (prevV[id] !== undefined && !RM){ el.classList.remove('tick'); void el.offsetWidth; el.classList.add('tick'); } prevV[id] = v; }
+  $(lid).textContent = plural(v, ...forms);
+}
+function tick(){
+  let s = Math.max(0, Math.floor((EVENT - Date.now())/1000));
+  const d = Math.floor(s/86400); s %= 86400; const h = Math.floor(s/3600); s %= 3600; const m = Math.floor(s/60); s %= 60;
+  put('cD','lD',d,['день','дня','дней']); put('cH','lH',h,['час','часа','часов']);
+  put('cM','lM',m,['минута','минуты','минут']); put('cS','lS',s,['секунда','секунды','секунд']);
+}
+tick(); setInterval(tick, 1000);
+
+// ---------- анкета ----------
+let people = [];
+const radio = n => (document.querySelector(`input[name="${n}"]:checked`)||{}).value;
+function chipsHtml(pi, sel){
+  return DRINKS.map((d, di) => `<span class="chip"><input type="checkbox" id="d${pi}_${di}" data-p="${pi}" data-d="${esc(d)}" ${sel.has(d)?'checked':''}><label for="d${pi}_${di}">${esc(d)}</label></span>`).join('');
+}
+function renderPeople(){
+  $('people').innerHTML = people.map((p, i) => {
+    const head = fam
+      ? `<label class="phead"><input type="checkbox" data-on="${i}" ${p.on?'checked':''}> ${esc(p.name)}</label>`
+      : `<input class="txt" data-name="${i}" value="${esc(p.name)}" placeholder="${i===0?'Ваше имя':'Имя гостя'}" aria-label="Имя гостя ${i+1}">`;
+    return `<div class="person${p.on?'':' off'}">${head}<div class="chips">${chipsHtml(i, p.drinks)}</div></div>`;
+  }).join('');
+  $('addPerson').hidden = !!fam || people.length >= 8;
+  $('whoLegend').textContent = fam ? 'Кто будет и что вы предпочитаете из напитков?' : 'Как вас зовут и что вы предпочитаете из напитков?';
+}
+function setRadio(n, v){ const r = document.querySelector(`input[name="${n}"][value="${v}"]`); if (r) r.checked = true; }
+function resetForm(){
+  const saved = store.get('rsvp:' + (famKey || 'guest'));
+  people = fam ? fam.members.map(n => ({name:n, on:true, drinks:new Set()})) : [{name:'', on:true, drinks:new Set()}];
+  $('form').reset();
+  if (saved){
+    setRadio('att', saved.att);
+    if (saved.people && saved.people.length) people = saved.people.map(p => ({name:p.name, on:p.on !== false, drinks:new Set(p.drinks||[])}));
+    if (saved.allergy){ setRadio('alg', saved.allergy.has ? 'yes' : 'no'); $('algText').value = saved.allergy.text || ''; }
+    if (saved.car){ setRadio('car', saved.car.has ? 'yes' : 'no'); $('carText').value = saved.car.text || ''; }
+    $('note').value = saved.note || '';
+  }
+  renderPeople(); syncBlocks();
+  if (saved) showDone(saved, true); else { $('done').hidden = true; $('form').hidden = false; }
+}
+function syncBlocks(){
+  const att = radio('att');
+  $('moreSlide').classList.toggle('closed', !att || att === 'no');
+  $('algSub').classList.toggle('open', radio('alg') === 'yes');
+  $('carSub').classList.toggle('open', radio('car') === 'yes');
+  $('err').hidden = true;
+}
+$('form').addEventListener('change', e => {
+  const t = e.target;
+  if (t.name === 'att' || t.name === 'alg' || t.name === 'car'){
+    syncBlocks();
+    if (t.name === 'alg' && t.value === 'yes') setTimeout(() => $('algText').focus({preventScroll:true}), 250);
+    if (t.name === 'car' && t.value === 'yes') setTimeout(() => $('carText').focus({preventScroll:true}), 250);
+  }
+  if (t.dataset.on !== undefined){ people[+t.dataset.on].on = t.checked; renderPeople(); }
+  if (t.dataset.d !== undefined){ const s = people[+t.dataset.p].drinks; t.checked ? s.add(t.dataset.d) : s.delete(t.dataset.d); }
+});
+$('form').addEventListener('input', e => { const t = e.target; if (t.dataset.name !== undefined) people[+t.dataset.name].name = t.value; });
+$('addPerson').onclick = () => { people.push({name:'', on:true, drinks:new Set()}); renderPeople(); const ins = document.querySelectorAll('[data-name]'); ins[ins.length-1].focus(); };
+function fail(msg){ const e = $('err'); e.textContent = msg; e.hidden = false; }
+$('form').addEventListener('submit', async e => {
+  e.preventDefault();
+  const att = radio('att');
+  if (!att) return fail('Выберите, сможете ли вы прийти.');
+  const coming = att !== 'no';
+  if (coming && !people.some(p => p.on && p.name.trim())) return fail(fam ? 'Отметьте, кто из вас будет.' : 'Напишите, пожалуйста, ваше имя.');
+  if (coming && radio('alg') === 'yes' && !$('algText').value.trim()) return fail('Напишите, пожалуйста, на что аллергия.');
+  if (coming && radio('car') === 'yes' && !$('carText').value.trim()) return fail('Укажите марку и номер машины — передадим охране.');
+  const answer = { family: famKey || '', greet: fam ? fam.greet : '', att,
+    people: people.filter(p => fam || p.name.trim()).map(p => ({name:p.name.trim(), on:p.on, drinks:[...p.drinks]})),
+    allergy: coming && radio('alg') ? {has: radio('alg') === 'yes', text: $('algText').value.trim()} : null,
+    car: coming && radio('car') ? {has: radio('car') === 'yes', text: $('carText').value.trim()} : null,
+    note: $('note').value.trim(), at: new Date().toISOString() };
+  const btn = $('send'); btn.disabled = true; btn.textContent = 'Отправляем…';
+  try{
+    if (RSVP_ENDPOINT && !DRAFT) await fetch(RSVP_ENDPOINT, {method:'POST', mode:'no-cors', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify(answer)});
+    store.set('rsvp:' + (famKey || 'guest'), answer);
+    showDone(answer);
+  }catch(err){ fail('Не получилось отправить. Проверьте интернет и попробуйте ещё раз.'); }
+  finally{ btn.disabled = false; btn.textContent = 'Отправить ответ'; }
+});
+function sparkle(){
+  if (RM) return;
+  const b = $('done').getBoundingClientRect(), cx = b.left + b.width/2, cy = b.top + 36;
+  for (let i=0;i<16;i++){
+    const s = document.createElement('i'); s.className = 'burst';
+    s.style.left = cx + 'px'; s.style.top = cy + 'px';
+    s.style.background = i%3 ? 'var(--gold)' : 'var(--wine)';
+    document.body.appendChild(s);
+    const a = Math.random()*Math.PI*2, d = 60 + Math.random()*100;
+    s.animate([{transform:'translate(-50%,-50%) rotate(45deg) scale(.3)', opacity:1},{transform:`translate(calc(-50% + ${Math.cos(a)*d}px), calc(-50% + ${Math.sin(a)*d - 30}px)) rotate(${45 + (Math.random()-.5)*180}deg) scale(${.6+Math.random()*.7})`, opacity:0}], {duration:1100 + Math.random()*500, easing:'cubic-bezier(.2,.7,.2,1)'}).onfinish = () => s.remove();
+  }
+}
+function showDone(a, quiet){
+  $('form').hidden = true; $('done').hidden = false;
+  const names = (a.people||[]).filter(p => p.on && p.name).map(p => p.name);
+  if (a.att === 'yes'){ $('doneTitle').textContent = 'Ждём вас!'; $('doneText').textContent = names.length ? `Записали: ${names.join(', ')}. До встречи 22 августа в 14:00.` : 'До встречи 22 августа в 14:00.'; if (!quiet) sparkle(); }
+  else if (a.att === 'maybe'){ $('doneTitle').textContent = 'Спасибо!'; $('doneText').textContent = 'Будем надеяться на встречу. Когда определитесь, загляните сюда и поменяйте ответ.'; }
+  else { $('doneTitle').textContent = 'Жаль, что не получится'; $('doneText').textContent = 'Спасибо, что ответили. Будем думать о вас в этот день.'; }
+  $('draftNote').hidden = !!RSVP_ENDPOINT && !DRAFT;
+}
+$('edit').onclick = () => { $('done').hidden = true; $('form').hidden = false; syncBlocks(); $('rsvp').scrollIntoView({behavior: RM ? 'auto' : 'smooth', block:'start'}); };
+
+// ---------- черновик ----------
+function setFont(f){
+  if (f === 'tenor') document.documentElement.removeAttribute('data-font'); else document.documentElement.setAttribute('data-font', f);
+  document.querySelectorAll('#draftBar [data-font]').forEach(b => b.classList.toggle('on', b.dataset.font === f));
+  setTimeout(measure, 50);
+}
+if (DRAFT){
+  $('draftBar').hidden = false;
+  $('draftBar').addEventListener('click', e => {
+    const b = e.target.closest('[data-fam]'); if (b) applyFamily(b.dataset.fam);
+    const f = e.target.closest('[data-font]'); if (f) setFont(f.dataset.font);
+  });
+  setFont('tenor');
+}
+addEventListener('hashchange', () => applyFamily(readFamily()));
+applyFamily(readFamily());
+})();
+</script>
+
+</body>
+</html>
