@@ -286,7 +286,7 @@ legend{font-family:var(--f-display);font-size:18px;letter-spacing:.02em;color:va
 .chip label{display:inline-block;border:1px solid var(--line);padding:5px 12px;font-size:17px;cursor:pointer;background:var(--paper);transition:all .15s;user-select:none}
 .chip input:checked + label{background:var(--forest);border-color:var(--forest);color:var(--on-dark)}
 .chip input:focus-visible + label{outline:2px solid var(--wine);outline-offset:2px}
-.person.off .chips{display:none}
+.person.off .chips,.declined .chips,.declined .drinkhint{display:none}
 .txt{width:100%;border:1px solid var(--line);padding:12px 14px;font:inherit;font-size:19px;background:#fff;color:var(--ink);border-radius:0}
 .txt:focus{border-color:var(--forest);outline:none}
 .sub{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s var(--ease),opacity .35s;opacity:0}
@@ -508,14 +508,14 @@ footer p{color:var(--on-dark-muted);margin:12px 0 0;font-style:italic;font-size:
         </fieldset>
 
         <div class="slide closed" id="moreSlide"><div>
-          <fieldset>
+          <fieldset id="whoFs">
             <legend id="whoLegend">Кто будет и что вы предпочитаете из напитков?</legend>
             <div id="people"></div>
             <button type="button" class="addp" id="addPerson" hidden>+ Добавить ещё одного гостя</button>
-            <p class="hint">Отметьте всё, что нравится.</p>
+            <p class="hint drinkhint">Отметьте всё, что нравится.</p>
           </fieldset>
 
-          <fieldset>
+          <fieldset id="algFs">
             <legend>Есть ли у кого-то из вас аллергия или особенности питания?</legend>
             <div class="choices row">
               <div class="choice"><input type="radio" name="alg" id="algNo" value="no"><label for="algNo">Нет</label></div>
@@ -524,7 +524,7 @@ footer p{color:var(--on-dark-muted);margin:12px 0 0;font-style:italic;font-size:
             <div class="sub" id="algSub"><div><input class="txt" id="algText" placeholder="Например: орехи, цитрусовые, не ем мясо" aria-label="Аллергия или особенности питания"></div></div>
           </fieldset>
 
-          <fieldset>
+          <fieldset id="carFs">
             <legend>Приедете на своей машине?</legend>
             <div class="choices row">
               <div class="choice"><input type="radio" name="car" id="carNo" value="no"><label for="carNo">Нет</label></div>
@@ -611,7 +611,7 @@ footer p{color:var(--on-dark-muted);margin:12px 0 0;font-style:italic;font-size:
 'use strict';
 // ================= НАСТРОЙКИ =================
 const DRAFT = false;                 // черновик: полоска сверху, ответы никуда не уходят
-const RSVP_ENDPOINT = '';           // адрес Google-таблицы (Apps Script) — вставим при запуске
+const RSVP_ENDPOINT = 'https://script.google.com/macros/s/AKfycbw56EnELTZAkxYB2vZprdiidjOswQCaMu0G-UzCJwM_OZF2rmNgxT5YvHxvRPSmFgzmcQ/exec';           // адрес Google-таблицы (Apps Script) — вставим при запуске
 const EVENT = new Date('2027-08-22T14:00:00+03:00');
 // Фото: путь к файлу (например 'img/cover.jpg') или пусто — тогда заглушка
 const PHOTOS = {
@@ -844,7 +844,6 @@ function renderPeople(){
     return `<div class="person${p.on?'':' off'}">${head}<div class="chips">${chipsHtml(i, p.drinks)}</div></div>`;
   }).join('');
   $('addPerson').hidden = !!fam || people.length >= 8;
-  $('whoLegend').textContent = fam ? 'Кто будет и что вы предпочитаете из напитков?' : 'Как вас зовут и что вы предпочитаете из напитков?';
 }
 function setRadio(n, v){ const r = document.querySelector(`input[name="${n}"][value="${v}"]`); if (r) r.checked = true; }
 function resetForm(){
@@ -862,8 +861,13 @@ function resetForm(){
   if (saved) showDone(saved, true); else { $('done').hidden = true; $('form').hidden = false; }
 }
 function syncBlocks(){
-  const att = radio('att');
-  $('moreSlide').classList.toggle('closed', !att || att === 'no');
+  const att = radio('att'), no = att === 'no';
+  $('moreSlide').classList.toggle('closed', !att);
+  $('whoFs').hidden = no && !!fam;
+  $('algFs').hidden = no; $('carFs').hidden = no;
+  $('form').classList.toggle('declined', no);
+  $('whoLegend').textContent = fam ? 'Кто будет и что вы предпочитаете из напитков?'
+    : no ? 'Как вас зовут?' : 'Как вас зовут и что вы предпочитаете из напитков?';
   $('algSub').classList.toggle('open', radio('alg') === 'yes');
   $('carSub').classList.toggle('open', radio('car') === 'yes');
   $('err').hidden = true;
@@ -881,27 +885,55 @@ $('form').addEventListener('change', e => {
 $('form').addEventListener('input', e => { const t = e.target; if (t.dataset.name !== undefined) people[+t.dataset.name].name = t.value; });
 $('addPerson').onclick = () => { people.push({name:'', on:true, drinks:new Set()}); renderPeople(); const ins = document.querySelectorAll('[data-name]'); ins[ins.length-1].focus(); };
 function fail(msg){ const e = $('err'); e.textContent = msg; e.hidden = false; }
+// один и тот же телефон без персональной ссылки обновляет свою строку в таблице, а не создаёт новую
+function browserId(){
+  let id = store.get('rsvp:id');
+  if (!id){ id = Math.random().toString(36).slice(2, 10) + Date.now().toString(36); store.set('rsvp:id', id); }
+  return id;
+}
+const famTitle = f => f.title || String(f.greet || '').replace(/^\s*Дорог\S*\s+/i, '').replace(/[!.\s]+$/, '');
+async function send(payload){
+  const ctl = 'AbortController' in window ? new AbortController() : null;
+  const timer = ctl ? setTimeout(() => ctl.abort(), 15000) : 0;
+  try{
+    await fetch(RSVP_ENDPOINT, {method:'POST', mode:'no-cors', keepalive:true, headers:{'Content-Type':'text/plain;charset=utf-8'},
+      body: JSON.stringify(payload), signal: ctl ? ctl.signal : undefined});
+  } finally { clearTimeout(timer); }
+}
+// если в прошлый раз связь подвела — тихо досылаем ответ при следующем открытии сайта
+function retryPending(){
+  const p = store.get('rsvp:pending');
+  if (!p || !RSVP_ENDPOINT || DRAFT) return;
+  send(p).then(() => { store.set('rsvp:pending', null); store.set('rsvp:' + (p.family || 'guest'), p); }).catch(() => {});
+}
 $('form').addEventListener('submit', async e => {
   e.preventDefault();
   const att = radio('att');
   if (!att) return fail('Выберите, сможете ли вы прийти.');
   const coming = att !== 'no';
-  if (coming && !people.some(p => p.on && p.name.trim())) return fail(fam ? 'Отметьте, кто из вас будет.' : 'Напишите, пожалуйста, ваше имя.');
+  if (!fam && !people.some(p => p.name.trim())) return fail('Напишите, пожалуйста, ваше имя.');
+  if (fam && coming && !people.some(p => p.on)) return fail('Отметьте, кто из вас будет.');
   if (coming && radio('alg') === 'yes' && !$('algText').value.trim()) return fail('Напишите, пожалуйста, на что аллергия.');
   if (coming && radio('car') === 'yes' && !$('carText').value.trim()) return fail('Укажите марку и номер машины — передадим охране.');
-  const answer = { family: famKey || '', greet: fam ? fam.greet : '', att,
-    people: people.filter(p => fam || p.name.trim()).map(p => ({name:p.name.trim(), on:p.on, drinks:[...p.drinks]})),
+  const named = people.filter(p => fam || p.name.trim()).map(p => ({name:p.name.trim(), on:p.on, drinks: coming ? [...p.drinks] : []}));
+  const answer = { v:1, key: famKey ? 'fam:' + famKey : 'id:' + browserId(),
+    title: fam ? famTitle(fam) : named.map(p => p.name).join(', '),
+    family: famKey || '', greet: fam ? fam.greet : '', att, people: named,
     allergy: coming && radio('alg') ? {has: radio('alg') === 'yes', text: $('algText').value.trim()} : null,
     car: coming && radio('car') ? {has: radio('car') === 'yes', text: $('carText').value.trim()} : null,
     note: $('note').value.trim(), at: new Date().toISOString() };
   const btn = $('send'); btn.disabled = true; btn.textContent = 'Отправляем…';
   try{
-    if (RSVP_ENDPOINT && !DRAFT) await fetch(RSVP_ENDPOINT, {method:'POST', mode:'no-cors', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify(answer)});
+    if (RSVP_ENDPOINT && !DRAFT){
+      try { await send(answer); store.set('rsvp:pending', null); }
+      catch(err){ store.set('rsvp:pending', answer); throw err; }
+    }
     store.set('rsvp:' + (famKey || 'guest'), answer);
     showDone(answer);
-  }catch(err){ fail('Не получилось отправить. Проверьте интернет и попробуйте ещё раз.'); }
+  }catch(err){ fail('Не получилось отправить. Проверьте интернет и нажмите ещё раз.'); }
   finally{ btn.disabled = false; btn.textContent = 'Отправить ответ'; }
 });
+addEventListener('online', retryPending);
 function sparkle(){
   if (RM) return;
   const b = $('done').getBoundingClientRect(), cx = b.left + b.width/2, cy = b.top + 36;
@@ -940,6 +972,7 @@ if (DRAFT){
 }
 addEventListener('hashchange', () => applyFamily(readFamily()));
 applyFamily(readFamily());
+retryPending();
 })();
 </script>
 
