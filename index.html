@@ -892,13 +892,30 @@ function browserId(){
   return id;
 }
 const famTitle = f => f.title || String(f.greet || '').replace(/^\s*Дорог\S*\s+/i, '').replace(/[!.\s]+$/, '');
-async function send(payload){
+function post(extra, ms){
   const ctl = 'AbortController' in window ? new AbortController() : null;
-  const timer = ctl ? setTimeout(() => ctl.abort(), 15000) : 0;
-  try{
-    await fetch(RSVP_ENDPOINT, {method:'POST', mode:'no-cors', keepalive:true, headers:{'Content-Type':'text/plain;charset=utf-8'},
-      body: JSON.stringify(payload), signal: ctl ? ctl.signal : undefined});
-  } finally { clearTimeout(timer); }
+  const timer = ctl ? setTimeout(() => ctl.abort(), ms) : 0;
+  const opts = Object.assign({method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, signal: ctl ? ctl.signal : undefined}, extra);
+  return fetch(RSVP_ENDPOINT, opts).then(r => { clearTimeout(timer); return r; }, e => { clearTimeout(timer); throw e; });
+}
+// Скрипт таблицы отвечает {ok:true}, когда ответ записан, или {ok:false, error}, если что-то не так.
+// Если прочитать его ответ браузер не дал (сеть, CORS), отправляем «вслепую», как раньше.
+async function send(payload){
+  const body = JSON.stringify(payload);
+  let res;
+  try { res = await post({body}, 25000); }
+  catch(err){
+    if (err && err.name === 'AbortError') throw err;
+    await post({body, mode:'no-cors', keepalive:true}, 15000);
+    return false;
+  }
+  let data = null;
+  try { data = await res.json(); } catch(_){}
+  if (!data || data.ok !== true){
+    const e = new Error(String((data && data.error) || 'HTTP ' + res.status).slice(0, 120));
+    e.server = true; throw e;
+  }
+  return true;
 }
 // если в прошлый раз связь подвела — тихо досылаем ответ при следующем открытии сайта
 function retryPending(){
@@ -908,6 +925,7 @@ function retryPending(){
 }
 $('form').addEventListener('submit', async e => {
   e.preventDefault();
+  $('err').hidden = true;
   const att = radio('att');
   if (!att) return fail('Выберите, сможете ли вы прийти.');
   const coming = att !== 'no';
@@ -930,7 +948,12 @@ $('form').addEventListener('submit', async e => {
     }
     store.set('rsvp:' + (famKey || 'guest'), answer);
     showDone(answer);
-  }catch(err){ fail('Не получилось отправить. Проверьте интернет и нажмите ещё раз.'); }
+  }catch(err){
+    console.warn('rsvp:', err);
+    if (err && err.server) fail('Ответ не сохранился — попробуйте ещё раз через минуту. (' + err.message + ')');
+    else if (err && err.name === 'AbortError') fail('Отправка затянулась. Нажмите «Отправить ответ» ещё раз через минуту.');
+    else fail('Не получилось отправить. Проверьте интернет и нажмите ещё раз.');
+  }
   finally{ btn.disabled = false; btn.textContent = 'Отправить ответ'; }
 });
 addEventListener('online', retryPending);
