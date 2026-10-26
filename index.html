@@ -286,7 +286,10 @@ legend{font-family:var(--f-display);font-size:18px;letter-spacing:.02em;color:va
 .chip label{display:inline-block;border:1px solid var(--line);padding:5px 12px;font-size:17px;cursor:pointer;background:var(--paper);transition:all .15s;user-select:none}
 .chip input:checked + label{background:var(--forest);border-color:var(--forest);color:var(--on-dark)}
 .chip input:focus-visible + label{outline:2px solid var(--wine);outline-offset:2px}
-.person.off .chips,.declined .chips,.declined .drinkhint{display:none}
+.person.off .chips,.brief .person .chips,.brief .drinkhint{display:none}
+/* месяцы для «возможно»: ровная сетка, как в календаре */
+.chips.months{display:grid;grid-template-columns:repeat(auto-fill,minmax(6.2em,1fr));margin-top:0}
+.chips.months label{display:block;text-align:center}
 .txt{width:100%;border:1px solid var(--line);padding:12px 14px;font:inherit;font-size:19px;background:#fff;color:var(--ink);border-radius:0}
 .txt:focus{border-color:var(--forest);outline:none}
 .sub{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s var(--ease),opacity .35s;opacity:0}
@@ -515,6 +518,12 @@ footer p{color:var(--on-dark-muted);margin:12px 0 0;font-style:italic;font-size:
             <p class="hint drinkhint">Отметьте всё, что нравится.</p>
           </fieldset>
 
+          <fieldset id="whenFs" hidden>
+            <legend>Когда примерно сможете определиться?</legend>
+            <div class="chips months" id="whenChips"></div>
+            <p class="hint">Это необязательно. Когда решите, просто поменяйте ответ здесь же.</p>
+          </fieldset>
+
           <fieldset id="algFs">
             <legend>Есть ли у кого-то из вас аллергия или особенности питания?</legend>
             <div class="choices row">
@@ -613,12 +622,9 @@ footer p{color:var(--on-dark-muted);margin:12px 0 0;font-style:italic;font-size:
 const DRAFT = false;                 // черновик: полоска сверху, ответы никуда не уходят
 const RSVP_ENDPOINT = 'https://script.google.com/macros/s/AKfycbw56EnELTZAkxYB2vZprdiidjOswQCaMu0G-UzCJwM_OZF2rmNgxT5YvHxvRPSmFgzmcQ/exec';           // адрес Google-таблицы (Apps Script) — вставим при запуске
 const EVENT = new Date('2027-08-22T14:00:00+03:00');
-// Фото: путь к файлу (например 'img/cover.jpg') или пусто — тогда заглушка
-const PHOTOS = {
-  cover:'', kidA:'', kidT:'', adultA:'', adultT:'', couple:'',
-  her:['','','','',''],   // образы для девушек
-  him:['','','','']       // образы для мужчин
-};
+// Фото: путь к файлу или { src, pos } — pos задаёт, какая часть кадра видна (как object-position).
+// Пусто — заглушка. Детские фото пока временно заменены фото собаки.
+const PHOTOS = { cover:'', kidA:'', kidT:'', adultA:'', adultT:'', couple:'', her:['','','','',''], him:['','','',''] };
 // Семьи: ключ из ссылки (сайт/#ключ) → обращение и состав. Заполним по вашему списку.
 const FAMILIES = {};
 const DRINKS = ['Красное вино','Белое вино','Игристое','Водка','Коньяк','Виски','Без алкоголя'];
@@ -634,8 +640,11 @@ const RM = (() => { try{ return matchMedia('(prefers-reduced-motion: reduce)').m
 
 // ---------- фото ----------
 const cam = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="14" rx="1"/><circle cx="12" cy="13" r="3.5"/><path d="M8.5 6l1.5-2h4l1.5 2"/></svg>';
-function photo(el, src, label, tone){
-  el.innerHTML = src ? `<img class="ph-img" src="${esc(src)}" alt="${esc(label)}" loading="lazy">` : `<div class="ph ${tone||''}">${cam}<span>${esc(label)}</span></div>`;
+function photo(el, p, label, tone){
+  const src = typeof p === 'string' ? p : p && p.src;
+  const pos = p && p.pos ? ` style="object-position:${esc(p.pos)}"` : '';
+  const lazy = el.id === 'coverPhoto' ? '' : ' loading="lazy"';
+  el.innerHTML = src ? `<img class="ph-img" src="${esc(src)}" alt="${esc(label)}"${pos}${lazy} decoding="async">` : `<div class="ph ${tone||''}">${cam}<span>${esc(label)}</span></div>`;
 }
 photo($('coverPhoto'), PHOTOS.cover, 'Здесь будет ваше общее фото', 'dark');
 photo($('kidA'), PHOTOS.kidA, 'Лёша в детстве', 'kid');
@@ -846,10 +855,23 @@ function renderPeople(){
   $('addPerson').hidden = !!fam || people.length >= 8;
 }
 function setRadio(n, v){ const r = document.querySelector(`input[name="${n}"][value="${v}"]`); if (r) r.checked = true; }
+// «Возможно»: месяцы, когда гость может определиться, — с декабря 2026 (или с текущего, если он позже) по июль 2027
+const MONTHS = ['январь','февраль','март','апрель','май','июнь','июль','август','сентябрь','октябрь','ноябрь','декабрь'];
+const MONTHS_IN = ['январе','феврале','марте','апреле','мае','июне','июле','августе','сентябре','октябре','ноябре','декабре'];
+const WHEN_FROM = new Date(2026, 11, 1);
+let whenCount = 0;
+function renderWhen(sel){
+  const d = new Date(Math.max(Date.now(), WHEN_FROM)); d.setDate(1); d.setHours(0, 0, 0, 0);
+  const end = new Date(EVENT.getFullYear(), EVENT.getMonth() - 1, 1), opts = [];
+  while (d <= end){ opts.push({v: d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0'), m: d.getMonth()}); d.setMonth(d.getMonth() + 1); }
+  $('whenChips').innerHTML = opts.map((o, i) => `<span class="chip"><input type="radio" name="when" id="w${i}" value="${o.v}" ${o.v === sel ? 'checked' : ''}><label for="w${i}">${MONTHS[o.m]}</label></span>`).join('');
+  return opts.length;
+}
 function resetForm(){
   const saved = store.get('rsvp:' + (famKey || 'guest'));
   people = fam ? fam.members.map(n => ({name:n, on:true, drinks:new Set()})) : [{name:'', on:true, drinks:new Set()}];
   $('form').reset();
+  whenCount = renderWhen(saved && saved.when);
   if (saved){
     setRadio('att', saved.att);
     if (saved.people && saved.people.length) people = saved.people.map(p => ({name:p.name, on:p.on !== false, drinks:new Set(p.drinks||[])}));
@@ -861,13 +883,15 @@ function resetForm(){
   if (saved) showDone(saved, true); else { $('done').hidden = true; $('form').hidden = false; }
 }
 function syncBlocks(){
-  const att = radio('att'), no = att === 'no';
+  // «нет» и «возможно» — короткая анкета: только имя (без персональной ссылки), у «возможно» ещё месяц
+  const att = radio('att'), maybe = att === 'maybe', brief = att === 'no' || maybe;
   $('moreSlide').classList.toggle('closed', !att);
-  $('whoFs').hidden = no && !!fam;
-  $('algFs').hidden = no; $('carFs').hidden = no;
-  $('form').classList.toggle('declined', no);
+  $('whoFs').hidden = brief && !!fam;
+  $('algFs').hidden = brief; $('carFs').hidden = brief;
+  $('whenFs').hidden = !maybe || !whenCount;
+  $('form').classList.toggle('brief', brief);
   $('whoLegend').textContent = fam ? 'Кто будет и что вы предпочитаете из напитков?'
-    : no ? 'Как вас зовут?' : 'Как вас зовут и что вы предпочитаете из напитков?';
+    : brief ? 'Как вас зовут?' : 'Как вас зовут и что вы предпочитаете из напитков?';
   $('algSub').classList.toggle('open', radio('alg') === 'yes');
   $('carSub').classList.toggle('open', radio('car') === 'yes');
   $('err').hidden = true;
@@ -928,17 +952,19 @@ $('form').addEventListener('submit', async e => {
   $('err').hidden = true;
   const att = radio('att');
   if (!att) return fail('Выберите, сможете ли вы прийти.');
-  const coming = att !== 'no';
+  const full = att === 'yes', maybe = att === 'maybe';
   if (!fam && !people.some(p => p.name.trim())) return fail('Напишите, пожалуйста, ваше имя.');
-  if (fam && coming && !people.some(p => p.on)) return fail('Отметьте, кто из вас будет.');
-  if (coming && radio('alg') === 'yes' && !$('algText').value.trim()) return fail('Напишите, пожалуйста, на что аллергия.');
-  if (coming && radio('car') === 'yes' && !$('carText').value.trim()) return fail('Укажите марку и номер машины — передадим охране.');
-  const named = people.filter(p => fam || p.name.trim()).map(p => ({name:p.name.trim(), on:p.on, drinks: coming ? [...p.drinks] : []}));
+  if (fam && full && !people.some(p => p.on)) return fail('Отметьте, кто из вас будет.');
+  if (full && radio('alg') === 'yes' && !$('algText').value.trim()) return fail('Напишите, пожалуйста, на что аллергия.');
+  if (full && radio('car') === 'yes' && !$('carText').value.trim()) return fail('Укажите марку и номер машины — передадим охране.');
+  // напитки, аллергии и машина нужны только тем, кто точно придёт; «возможно» — вся семья под вопросом
+  const named = people.filter(p => fam || p.name.trim()).map(p => ({name:p.name.trim(), on: maybe ? true : p.on, drinks: full ? [...p.drinks] : []}));
   const answer = { v:1, key: famKey ? 'fam:' + famKey : 'id:' + browserId(),
     title: fam ? famTitle(fam) : named.map(p => p.name).join(', '),
     family: famKey || '', greet: fam ? fam.greet : '', att, people: named,
-    allergy: coming && radio('alg') ? {has: radio('alg') === 'yes', text: $('algText').value.trim()} : null,
-    car: coming && radio('car') ? {has: radio('car') === 'yes', text: $('carText').value.trim()} : null,
+    when: maybe ? (radio('when') || '') : '',
+    allergy: full && radio('alg') ? {has: radio('alg') === 'yes', text: $('algText').value.trim()} : null,
+    car: full && radio('car') ? {has: radio('car') === 'yes', text: $('carText').value.trim()} : null,
     note: $('note').value.trim(), at: new Date().toISOString() };
   const btn = $('send'); btn.disabled = true; btn.textContent = 'Отправляем…';
   try{
@@ -973,7 +999,11 @@ function showDone(a, quiet){
   $('form').hidden = true; $('done').hidden = false;
   const names = (a.people||[]).filter(p => p.on && p.name).map(p => p.name);
   if (a.att === 'yes'){ $('doneTitle').textContent = 'Ждём вас!'; $('doneText').textContent = names.length ? `Записали: ${names.join(', ')}. До встречи 22 августа в 14:00.` : 'До встречи 22 августа в 14:00.'; if (!quiet) sparkle(); }
-  else if (a.att === 'maybe'){ $('doneTitle').textContent = 'Спасибо!'; $('doneText').textContent = 'Будем надеяться на встречу. Когда определитесь, загляните сюда и поменяйте ответ.'; }
+  else if (a.att === 'maybe'){
+    const w = /^\d{4}-(\d{2})$/.exec(a.when || '');
+    $('doneTitle').textContent = 'Спасибо!';
+    $('doneText').textContent = (w ? `Будем ждать вашего решения в ${MONTHS_IN[+w[1] - 1]}. ` : 'Будем надеяться на встречу. ') + 'Когда определитесь, загляните сюда и поменяйте ответ.';
+  }
   else { $('doneTitle').textContent = 'Жаль, что не получится'; $('doneText').textContent = 'Спасибо, что ответили. Будем думать о вас в этот день.'; }
   $('draftNote').hidden = !!RSVP_ENDPOINT && !DRAFT;
 }
