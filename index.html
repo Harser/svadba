@@ -71,6 +71,8 @@ a{color:var(--wine)}
 .draft .sep{width:100%;height:0}
 .draft button{border:1px solid rgba(255,255,255,.45);background:transparent;color:inherit;border-radius:999px;padding:3px 10px;font:inherit;cursor:pointer}
 .draft button.on{background:var(--on-dark);color:var(--wine)}
+.draft select{border:1px solid rgba(255,255,255,.45);background:transparent;color:inherit;border-radius:999px;padding:3px 8px;font:inherit;max-width:100%}
+.draft option{color:#1F3A2E}
 
 /* ---- cover ---- */
 .cover{background:var(--forest);color:var(--on-dark);position:relative;overflow:hidden}
@@ -248,6 +250,7 @@ a{color:var(--wine)}
 
 /* ---- details ---- */
 .details{display:grid;gap:14px;margin-top:30px}
+#greeting.long{font-size:clamp(28px,7.4vw,40px)}
 .detail{background:#fff;border:1px solid var(--line);padding:28px 22px 26px;text-align:center;position:relative}
 .detail::before{content:"";position:absolute;inset:5px;border:1px solid rgba(179,149,102,.3);pointer-events:none}
 .detail .icon{width:44px;height:44px;color:var(--gold);display:block;margin:0 auto 12px}
@@ -464,8 +467,7 @@ footer .bye{font-family:var(--f-script);font-size:clamp(50px,14vw,68px);letter-s
 <div class="draft" id="draftBar" hidden>
   <div class="wrap">
     <b>Черновик.</b> Гость:
-    <button type="button" data-fam="">Без имени</button>
-    <button type="button" data-fam="primer">Персональная ссылка</button>
+    <select id="famSel" aria-label="Чья ссылка"><option value="">Общая ссылка (без имени)</option></select>
     <span class="sep"></span>
     Рукописный шрифт:
     <button type="button" data-font="vibes">Great Vibes</button>
@@ -502,7 +504,7 @@ footer .bye{font-family:var(--f-script);font-size:clamp(50px,14vw,68px);letter-s
       <svg class="deco" data-reveal viewBox="0 0 150 30" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><use href="#divider"/></svg>
       <h2 id="greeting" data-reveal>Дорогие родные и друзья!</h2>
       <p class="lead we" data-reveal style="--d:.15s">Мы женимся!</p>
-      <p class="lead" data-reveal style="--d:.3s">Этот важный и трепетный день мы были бы рады разделить с самыми любимыми и близкими — с вами!</p>
+      <p class="lead" data-reveal style="--d:.3s" data-one="Этот важный и трепетный день мы были бы рады разделить с самыми любимыми и близкими — с тобой!">Этот важный и трепетный день мы были бы рады разделить с самыми любимыми и близкими — с вами!</p>
     </div>
   </section>
 
@@ -529,7 +531,7 @@ footer .bye{font-family:var(--f-script);font-size:clamp(50px,14vw,68px);letter-s
   <section class="center">
     <div class="wrap">
       <div class="eyebrow" data-reveal>Когда будет торжество</div>
-      <h2 data-reveal>Сохраните дату</h2>
+      <h2 data-reveal data-one="Сохрани дату">Сохраните дату</h2>
       <div class="cal" data-reveal="zoom" style="--d:.1s">
         <div class="calhead"><span class="calmon">Август</span><span class="calyr">2027</span></div>
         <svg class="cn tl" viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><use href="#calcorner"/></svg>
@@ -570,7 +572,7 @@ footer .bye{font-family:var(--f-script);font-size:clamp(50px,14vw,68px);letter-s
       </div>
       <div class="carnote" data-reveal>
         <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 20v-5l3-6h16l3 6v5z"/><path d="M5 15h22"/><circle cx="10" cy="20.5" r="2.5"/><circle cx="22" cy="20.5" r="2.5"/></svg>
-        <span>Если вы поедете на собственном автомобиле, пожалуйста, сообщите нам заранее марку и номер машины, чтобы вас пропустила охрана на въезде. Это можно сделать в анкете ниже.</span>
+        <span data-one="Если ты поедешь на собственном автомобиле, пожалуйста, сообщи нам заранее марку и номер машины, чтобы тебя пропустила охрана на въезде. Это можно сделать в анкете ниже.">Если вы поедете на собственном автомобиле, пожалуйста, сообщите нам заранее марку и номер машины, чтобы вас пропустила охрана на въезде. Это можно сделать в анкете ниже.</span>
       </div>
     </div>
   </section>
@@ -579,7 +581,7 @@ footer .bye{font-family:var(--f-script);font-size:clamp(50px,14vw,68px);letter-s
     <div class="wrap">
       <div class="eyebrow" data-reveal>Дресс-код</div>
       <h2 data-reveal>Цвета праздника</h2>
-      <p class="muted" data-reveal style="margin:14px auto 0;max-width:34ch">Будем рады, если вы поддержите палитру нашей свадьбы в своих образах.</p>
+      <p class="muted" data-reveal style="margin:14px auto 0;max-width:34ch" data-one="Будем рады, если ты поддержишь палитру нашей свадьбы в своём образе.">Будем рады, если вы поддержите палитру нашей свадьбы в своих образах.</p>
       <div class="palette">
         <div class="sw" data-reveal="zoom" style="--d:0s"><i style="background:#6E1F2E"></i>бордовый</div>
         <div class="sw" data-reveal="zoom" style="--d:.06s"><i style="background:#1F3A2E"></i>тёмно-зелёный</div>
@@ -611,7 +613,7 @@ footer .bye{font-family:var(--f-script);font-size:clamp(50px,14vw,68px);letter-s
         </div>
         <div class="detail wide" data-reveal style="--d:.1s">
           <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 24a10 10 0 0 1 20 0"/><path d="M24 8v4M13.5 12.5l2.5 3M34.5 12.5l-2.5 3M8 20h4M36 20h4"/><path d="M6 30c3-2.4 6-2.4 9 0s6 2.4 9 0 6-2.4 9 0 6 2.4 9 0"/><path d="M6 36c3-2.4 6-2.4 9 0s6 2.4 9 0 6-2.4 9 0 6 2.4 9 0"/><path d="M10 42c2.5-2 5-2 7.5 0s5 2 7.5 0 5-2 7.5 0 5 2 7.5 0"/></svg>
-          <div><p>У площадки есть свой выход к воде — не забудьте захватить сменную одежду, если захотите освежиться.</p></div>
+          <div><p data-one="У площадки есть свой выход к воде — не забудь захватить сменную одежду, если захочешь освежиться.">У площадки есть свой выход к воде — не забудьте захватить сменную одежду, если захотите освежиться.</p></div>
         </div>
       </div>
     </div>
@@ -619,16 +621,20 @@ footer .bye{font-family:var(--f-script);font-size:clamp(50px,14vw,68px);letter-s
 
   <section class="rsvp" id="rsvp">
     <div class="wrap">
-      <div class="center"><div class="eyebrow" data-reveal>Анкета гостя</div><h2 data-reveal>Нам важен ваш ответ</h2>
+      <div class="center"><div class="eyebrow" data-reveal>Анкета гостя</div><h2 data-reveal data-one="Нам важен твой ответ">Нам важен ваш ответ</h2>
         <p class="muted" data-reveal style="margin:12px auto 0;max-width:34ch">Так нам будет проще всё подготовить. Ответ можно изменить в любой момент.</p></div>
 
       <form id="form" novalidate data-reveal>
+        <fieldset id="homeFs" hidden>
+          <legend>Кто отвечает?</legend>
+          <div class="choices" id="homeChoices"></div>
+        </fieldset>
         <fieldset>
-          <legend>Сможете ли вы прийти?</legend>
+          <legend data-one="Сможешь ли ты прийти?">Сможете ли вы прийти?</legend>
           <div class="choices">
             <div class="choice"><input type="radio" name="att" id="attYes" value="yes"><label for="attYes">Да, с радостью!</label></div>
-            <div class="choice"><input type="radio" name="att" id="attMaybe" value="maybe"><label for="attMaybe">Возможно, пока не определились</label></div>
-            <div class="choice"><input type="radio" name="att" id="attNo" value="no"><label for="attNo">К сожалению, не сможем</label></div>
+            <div class="choice"><input type="radio" name="att" id="attMaybe" value="maybe"><label for="attMaybe" data-one="Возможно, пока не определился" data-one-f="Возможно, пока не определилась">Возможно, пока не определились</label></div>
+            <div class="choice"><input type="radio" name="att" id="attNo" value="no"><label for="attNo" data-one="К сожалению, не смогу">К сожалению, не сможем</label></div>
           </div>
         </fieldset>
 
@@ -637,17 +643,17 @@ footer .bye{font-family:var(--f-script);font-size:clamp(50px,14vw,68px);letter-s
             <legend id="whoLegend">Кто будет и что вы предпочитаете из напитков?</legend>
             <div id="people"></div>
             <button type="button" class="addp" id="addPerson" hidden>+ Добавить ещё одного гостя</button>
-            <p class="hint drinkhint">Отметьте всё, что нравится.</p>
+            <p class="hint drinkhint" data-one="Отметь всё, что нравится.">Отметьте всё, что нравится.</p>
           </fieldset>
 
           <fieldset id="whenFs" hidden>
-            <legend>Когда примерно сможете определиться?</legend>
+            <legend data-one="Когда примерно сможешь определиться?">Когда примерно сможете определиться?</legend>
             <div class="chips months" id="whenChips"></div>
-            <p class="hint">Это необязательно. Когда решите, просто поменяйте ответ здесь же.</p>
+            <p class="hint" data-one="Это необязательно. Когда решишь, просто поменяй ответ здесь же.">Это необязательно. Когда решите, просто поменяйте ответ здесь же.</p>
           </fieldset>
 
           <fieldset id="algFs">
-            <legend>Есть ли у кого-то из вас аллергия или особенности питания?</legend>
+            <legend data-one="Есть ли у тебя аллергия или особенности питания?">Есть ли у кого-то из вас аллергия или особенности питания?</legend>
             <div class="choices row">
               <div class="choice"><input type="radio" name="alg" id="algNo" value="no"><label for="algNo">Нет</label></div>
               <div class="choice"><input type="radio" name="alg" id="algYes" value="yes"><label for="algYes">Да</label></div>
@@ -656,16 +662,16 @@ footer .bye{font-family:var(--f-script);font-size:clamp(50px,14vw,68px);letter-s
           </fieldset>
 
           <fieldset id="carFs">
-            <legend>Приедете на своей машине?</legend>
+            <legend data-one="Приедешь на своей машине?">Приедете на своей машине?</legend>
             <div class="choices row">
               <div class="choice"><input type="radio" name="car" id="carNo" value="no"><label for="carNo">Нет</label></div>
               <div class="choice"><input type="radio" name="car" id="carYes" value="yes"><label for="carYes">Да</label></div>
             </div>
-            <div class="sub" id="carSub"><div><input class="txt" id="carText" placeholder="Марка и номер, например: Kia Rio, А123ВС 777" aria-label="Марка и номер машины"><p class="hint">Передадим охране, чтобы вас пропустили на въезде.</p></div></div>
+            <div class="sub" id="carSub"><div><input class="txt" id="carText" placeholder="Марка и номер, например: Kia Rio, А123ВС 777" aria-label="Марка и номер машины"><p class="hint" data-one="Передадим охране, чтобы тебя пропустили на въезде.">Передадим охране, чтобы вас пропустили на въезде.</p></div></div>
           </fieldset>
 
           <fieldset>
-            <legend>Хотите что-то добавить?</legend>
+            <legend data-one="Хочешь что-то добавить?">Хотите что-то добавить?</legend>
             <textarea class="txt" id="note" rows="3" placeholder="Необязательно"></textarea>
           </fieldset>
         </div></div>
@@ -738,8 +744,12 @@ const EVENT = new Date('2027-08-22T14:00:00+03:00');
 // Фото: путь к файлу или { src, pos } — pos задаёт, какая часть кадра видна (как object-position).
 // Пусто — заглушка. Детские фото пока временно заменены фото собаки.
 const PHOTOS = { cover:{ src:'img/cover-oval.jpg', pos:'50% 50%' }, kidA:'', kidT:'', adultA:'', adultT:'', couple:'', her:['','','','',''], him:['','','',''] };
-// Семьи: ключ из ссылки (сайт/#ключ) → обращение и состав. Заполним по вашему списку.
+// Семьи: код из ссылки (сайт/#код) → обращение и кто приглашён.
+// members — одна семья; homes — одна ссылка на несколько семей (в анкете сначала «кто отвечает»);
+// one — приглашение на одного: весь сайт обращается на «ты», g:'f' — для девушки.
 const FAMILIES = {};
+// В публичной версии список зашифрован: обращение открывается только своим кодом (заполняет build_site.py).
+const FAM_LOCKED = {"6ce0654b27b78e06": {"iv": "H304WyOXXYuzGVQ0", "ct": "TMBBAX3LxM2p8eYZCA71nhVoft8KRQHiN6bN88uwpHpuhdLFaFIdb0t3lMZLAJaIg+fUANB9vQRCJbV2N5OA8v/JaQRpoWok9Jw0u4uSMFCIa75Vca0KVoW6l3/iV1whxeWP2kEsx16s/zG93AOZeXTi/1hhvNiYCUXAm88hfU4fE8yMimz0q+ixT45j8Be0y3ygmvsqWZUGXoqJZGp31Zi0iUb1UI+ziApjV/6tCjt8gB3O5sN8CdtmWsFuGGw9dpMITcs0jG+U9cIDalJvjVyx/d7Zx1z8MkQbuvc5cwz2HA=="}, "987fc9ee22663e29": {"iv": "Ui9MS8SSyVsSLAWd", "ct": "am0CEWbqGyTlxTzsT083QcMQ4WC8nbMjfD7pgSKS9jIiNP+sH3yi4DQJpX0Om3fDvPMAilsskPGqB/TncTbWXZYoDF4BrUAGkJzw1DOiKAQQgDb2rH2xh8hU0nIxvBFAeucBPY4TXGRu4AjrWgnBtIVVlONXS5cuNt19d7Z2SNTbwr2gi9KBOVORJlnyt0nMWCpy1D7crvKgPKSLzc1ox+9i0qyQVfB/cRHSdF7VohSa1QuFIqGhhJH8fom9ZjxBgXA6C0M4kYkYCAp6zAOMsF5VgX28KrjvQSSgU12onJtLsYQAXOcReUTdOz2VRjhzN0y/uXBO1FEynUlqmgSfrng18Ygz8bcQZ4WNuUFMVoTP5OS2q3npBFhxiTw="}, "1008ba82eb24673e": {"iv": "zL6uRAQbU+KBH+i3", "ct": "BeCGH6/b5Hf0ry1hl7E8JCUJzkUiseNIbYwoNYMqTY56akrk/yfUJARZIzBDLHbec0Su2lupahw0UIGyM1jN0tum6K2lSXKcvGI6J44kKNBvlcY7X/0tiZjeWFDU/Ohw3ro/vNprPjqU5WzThg94ZGKQgE4="}, "33a64bc0dfe105a1": {"iv": "K9SU9sSuf42WSPNo", "ct": "Rq3SdSpbULQGtcyUvoTv4nWgDzzxL1P2gqEu+bHvzu0UXjI8+uVeP0bedFYmD+T79kMeR1myo/gGume15sOMatOKL3Mu4LgCCWGMdE93MiXzhJgq3R4dfmAzmtB7qyZSSWMoJ+59RvGRTTJwRDjtNC5vEYfRE1YXvAfBYzCq1noFdLvU74gJbinuM0K7TJIVq8VFt8ZVLdLGHsozHFyV3GZZSJM2g9Hdqb3HKDSRpLE/KMqgpNGkuYw1YQq5ZTTEiuMfmw=="}, "f5fde472855419b0": {"iv": "uRgXrE2S8Qayseil", "ct": "yt6ZRAauOniN7sZpABIcw+igE8lp4i0oJTVHoDsk3Q7PCouQhu79f2SPtQVoOR6WHKnrkBneijgKzoSuw9kqmGGDdrUdqrAif9gkYykTCIssRuT4/TJS/qr29Y+V3CtBbwK1kOZLiqDSFqEToMwBzyrv9tBQisphpZ2G71eAL54hg8/3XAf2ti1/Kp7te5HRXPfslu/GFovZRv2hRCE="}, "ee1c217268fdf87c": {"iv": "5QdixHZpBwNw/91x", "ct": "oYeFYkpBxNUtn3X4R/pK8z2Yli2K3LeRCE4MBjNEAZkxieU9C7ODe9VqTbxw3zjv4dU7Y8RBsD9iV1L1TR0yo+QaGwmpUoUKVSFkwpDm0jKRKPmOniKA1YYmqADwdEUhOQfITAlo74mnf8Mkj1AtXPzdxWOeq9yFdGH2yWCeRsu6JqJCSrLNeKjnimEYXA0="}, "a68045d1cc449014": {"iv": "1BB6jaSony6+gMRA", "ct": "h5LRgMPnzl4XvaLsDL3qIoNi+0Am181LW7t+3wUYwS1S9GX+mPCXycexNvFocJS2+GfvXurxTueruk3bzRv3Ln3E0MgvPeEPHVYzq/+5mcer8X6i9PFO7IJ/V84T+rJXe0XqrHjxScDp9XyqkSiJ"}, "357e6c8a5a092d42": {"iv": "nxQ9XooqZfO3QwdS", "ct": "dekMJbm9S/sL+t856c5+WGfrqSsvFM91TCV+JWjNEdiYDWX6owGovRxzB3FRbV78f3Tq/rD0YdD8L401Hq6v3qg7VtvsiIxCfd82x/0P1Y7uXnnWDU+Xr6TuIWpE2DBgVbYFlfAIVoMy0Tg9hLXixK4K0UA3JqW5agUKWXk69kINnIUiekEtmQ=="}, "539d1d18d5659a53": {"iv": "hHurUfmlXjtwAWN9", "ct": "WwzzwiYLoMm52KVDh2KdUDMluG0L/Gc6xVBMegCKU+vMgSdGmAXNFOvxIZ/WNulj1aXenBArMVRQYXQMYboDezU5U+2PTYseZEUs+SMr7Xc+X6nuj/G4yK6RHtOR8rZ52SlsQVG1QwFbTf39Fks688h21j8J9ROu4O0xxcLbH7c="}, "94453e5cf13eb117": {"iv": "BLCECLKcg0j9qiNF", "ct": "my3M8soLQ0RsO2ceEIMarLQk5db59djQXyN0x8f0I8lU99STULv3QhXLdCBi2grV83baC/Xv8ijY3sN/bjNdM93fi5cIe0fRHAtG5MY2nwqJ72fiXKDJ08t7rputRcTXIx9BWXiOEgefe9W3nwJ65NHbMWIeZy78PECeTIuUzw=="}, "ab5afd11d3794da0": {"iv": "46q/KycqX1YaRZ7P", "ct": "ysyOzR6OSv4kMwjBLobCy0OgdLp05MF2KZz7uqoEzccVBDyia/1bLI+lDB8qiSqyFXRbGG2SUARezs7rugI7MlB9GvtcP8fedf7x7AFGiJkaWPM177zqhYoAiubeocqwz6fqx8gg/2Ybk7CmJ/000v7UE2hzv1/tAlDDMKDObVBb+VeV7Q=="}};
 const DRINKS = ['Красное вино','Белое вино','Игристое','Водка','Коньяк','Виски','Без алкоголя'];
 // ============================================
 
@@ -922,16 +932,58 @@ document.querySelectorAll('[data-look]').forEach(b => b.onclick = () => {
 renderLooks();
 
 // ---------- семья по ссылке ----------
-let famKey = '', fam = null;
-function readFamily(){
-  const h = (location.hash || '').replace(/^#/, '');
+let famKey = '', fam = null, home = -1;     // home — какая семья отвечает по общей ссылке (homes)
+const one = () => !!(fam && fam.one);
+const T = (many, oneM, oneF) => one() ? ((fam.g === 'f' && oneF) || oneM) : many;     // «вы» / «ты»
+const joinNames = a => a.length > 1 ? a.slice(0, -1).join(', ') + ' и ' + a[a.length - 1] : (a[0] || '');
+const homeMembers = () => !fam ? [] : fam.homes ? (home >= 0 ? fam.homes[home] : []) : (fam.members || []);
+const rsvpKey = () => !famKey ? '' : fam && fam.homes ? (home >= 0 ? famKey + '-' + (home + 1) : '') : famKey;
+function codeFromUrl(){
   let q = ''; try{ q = new URLSearchParams(location.search).get('g') || ''; }catch(e){}
-  return FAMILIES[q] ? q : FAMILIES[h] ? h : '';
+  let h = (location.hash || '').replace(/^#/, ''); try{ h = decodeURIComponent(h); }catch(e){}
+  return (q || h).trim().toLowerCase();
+}
+async function unlockFamily(code){
+  if (!code || !window.crypto || !crypto.subtle || !Object.keys(FAM_LOCKED).length) return null;
+  const enc = new TextEncoder(), hex = b => [...new Uint8Array(b)].map(x => x.toString(16).padStart(2, '0')).join('');
+  const id = hex(await crypto.subtle.digest('SHA-256', enc.encode('svadba:' + code))).slice(0, 16);
+  const rec = FAM_LOCKED[id]; if (!rec) return null;
+  const raw = await crypto.subtle.importKey('raw', enc.encode(code), 'PBKDF2', false, ['deriveKey']);
+  const key = await crypto.subtle.deriveKey({name:'PBKDF2', salt: enc.encode('svadba-salt:' + id), iterations: 150000, hash: 'SHA-256'},
+    raw, {name:'AES-GCM', length:256}, false, ['decrypt']);
+  const b64 = t => Uint8Array.from(atob(t), c => c.charCodeAt(0));
+  return JSON.parse(new TextDecoder().decode(await crypto.subtle.decrypt({name:'AES-GCM', iv: b64(rec.iv)}, key, b64(rec.ct))));
+}
+async function loadFamily(){
+  const code = codeFromUrl();
+  if (!code || FAMILIES[code]) return applyFamily(FAMILIES[code] ? code : '');
+  try{ const f = await unlockFamily(code); if (f){ FAMILIES[code] = f; return applyFamily(code); } }catch(e){ console.warn('family:', e); }
+  if (!famKey) applyFamily('');
+}
+// тексты «на ты» для приглашения на одного человека
+function applyVoice(){
+  const o = one(), f = o && fam.g === 'f';
+  document.querySelectorAll('[data-one]').forEach(el => {
+    if (el.dataset.many === undefined) el.dataset.many = el.textContent;
+    el.textContent = o ? (f && el.dataset.oneF ? el.dataset.oneF : el.dataset.one) : el.dataset.many;
+  });
+}
+function renderHomes(){
+  const on = !!(fam && fam.homes);
+  $('homeFs').hidden = !on;
+  $('homeChoices').innerHTML = on ? fam.homes.map((h, i) =>
+    `<div class="choice"><input type="radio" name="home" id="home${i}" value="${i}"><label for="home${i}">${esc(joinNames(h))}</label></div>`).join('') : '';
 }
 function applyFamily(key){
   famKey = key; fam = FAMILIES[key] || null;
-  $('greeting').textContent = fam ? fam.greet : 'Дорогие родные и друзья!';
-  document.querySelectorAll('#draftBar [data-fam]').forEach(b => b.classList.toggle('on', b.dataset.fam === key));
+  const h = fam && fam.homes ? store.get('rsvp:home:' + key) : null;
+  home = typeof h === 'number' && fam.homes[h] ? h : -1;
+  // «тётя …», «дядя …», «и …» в обращении не разрываем переносом строки
+  const nb = t => String(t).replace(/(^|[\s,])(тётя|тетя|дядя|бабушка|дедушка|и) /gi, '$1$2\u00A0');
+  const g = $('greeting'); g.textContent = fam ? nb(fam.greet) : 'Дорогие родные и друзья!';
+  g.classList.toggle('long', g.textContent.length > 34);
+  applyVoice(); renderHomes();
+  if ($('famSel')) $('famSel').value = key;
   resetForm();
 }
 
@@ -958,9 +1010,10 @@ function chipsHtml(pi, sel){
   return DRINKS.map((d, di) => `<span class="chip"><input type="checkbox" id="d${pi}_${di}" data-p="${pi}" data-d="${esc(d)}" ${sel.has(d)?'checked':''}><label for="d${pi}_${di}">${esc(d)}</label></span>`).join('');
 }
 function renderPeople(){
+  if (fam && fam.homes && home < 0){ $('people').innerHTML = '<p class="hint">Сначала отметьте выше, кто отвечает.</p>'; $('addPerson').hidden = true; return; }
   $('people').innerHTML = people.map((p, i) => {
-    const head = fam
-      ? `<label class="phead"><input type="checkbox" data-on="${i}" ${p.on?'checked':''}> ${esc(p.name)}</label>`
+    const head = one() ? ''
+      : fam ? `<label class="phead"><input type="checkbox" data-on="${i}" ${p.on?'checked':''}> ${esc(p.name)}</label>`
       : `<input class="txt" data-name="${i}" value="${esc(p.name)}" placeholder="${i===0?'Ваше имя':'Имя гостя'}" aria-label="Имя гостя ${i+1}">`;
     return `<div class="person${p.on?'':' off'}">${head}<div class="chips">${chipsHtml(i, p.drinks)}</div></div>`;
   }).join('');
@@ -980,9 +1033,10 @@ function renderWhen(sel){
   return opts.length;
 }
 function resetForm(){
-  const saved = store.get('rsvp:' + (famKey || 'guest'));
-  people = fam ? fam.members.map(n => ({name:n, on:true, drinks:new Set()})) : [{name:'', on:true, drinks:new Set()}];
+  const key = rsvpKey(), saved = fam && !key ? null : store.get('rsvp:' + (key || 'guest'));
+  people = fam ? homeMembers().map(n => ({name:n, on:true, drinks:new Set()})) : [{name:'', on:true, drinks:new Set()}];
   $('form').reset();
+  if (home >= 0) setRadio('home', String(home));
   whenCount = renderWhen(saved && saved.when);
   if (saved){
     setRadio('att', saved.att);
@@ -1002,7 +1056,7 @@ function syncBlocks(){
   $('algFs').hidden = brief; $('carFs').hidden = brief;
   $('whenFs').hidden = !maybe || !whenCount;
   $('form').classList.toggle('brief', brief);
-  $('whoLegend').textContent = fam ? 'Кто будет и что вы предпочитаете из напитков?'
+  $('whoLegend').textContent = one() ? 'Что ты предпочитаешь из напитков?' : fam ? 'Кто будет и что вы предпочитаете из напитков?'
     : brief ? 'Как вас зовут?' : 'Как вас зовут и что вы предпочитаете из напитков?';
   $('algSub').classList.toggle('open', radio('alg') === 'yes');
   $('carSub').classList.toggle('open', radio('car') === 'yes');
@@ -1010,6 +1064,7 @@ function syncBlocks(){
 }
 $('form').addEventListener('change', e => {
   const t = e.target;
+  if (t.name === 'home'){ home = +t.value; store.set('rsvp:home:' + famKey, home); resetForm(); return; }
   if (t.name === 'att' || t.name === 'alg' || t.name === 'car'){
     syncBlocks();
     if (t.name === 'alg' && t.value === 'yes') setTimeout(() => $('algText').focus({preventScroll:true}), 250);
@@ -1027,7 +1082,6 @@ function browserId(){
   if (!id){ id = Math.random().toString(36).slice(2, 10) + Date.now().toString(36); store.set('rsvp:id', id); }
   return id;
 }
-const famTitle = f => f.title || String(f.greet || '').replace(/^\s*Дорог\S*\s+/i, '').replace(/[!.\s]+$/, '');
 function post(extra, ms){
   const ctl = 'AbortController' in window ? new AbortController() : null;
   const timer = ctl ? setTimeout(() => ctl.abort(), ms) : 0;
@@ -1063,17 +1117,19 @@ $('form').addEventListener('submit', async e => {
   e.preventDefault();
   $('err').hidden = true;
   const att = radio('att');
-  if (!att) return fail('Выберите, сможете ли вы прийти.');
+  if (fam && fam.homes && home < 0) return fail('Отметьте, пожалуйста, кто отвечает.');
+  if (!att) return fail(T('Выберите, сможете ли вы прийти.', 'Выбери, сможешь ли ты прийти.'));
   const full = att === 'yes', maybe = att === 'maybe';
   if (!fam && !people.some(p => p.name.trim())) return fail('Напишите, пожалуйста, ваше имя.');
   if (fam && full && !people.some(p => p.on)) return fail('Отметьте, кто из вас будет.');
-  if (full && radio('alg') === 'yes' && !$('algText').value.trim()) return fail('Напишите, пожалуйста, на что аллергия.');
-  if (full && radio('car') === 'yes' && !$('carText').value.trim()) return fail('Укажите марку и номер машины — передадим охране.');
+  if (full && radio('alg') === 'yes' && !$('algText').value.trim()) return fail(T('Напишите, пожалуйста, на что аллергия.', 'Напиши, пожалуйста, на что аллергия.'));
+  if (full && radio('car') === 'yes' && !$('carText').value.trim()) return fail(T('Укажите марку и номер машины — передадим охране.', 'Укажи марку и номер машины — передадим охране.'));
   // напитки, аллергии и машина нужны только тем, кто точно придёт; «возможно» — вся семья под вопросом
   const named = people.filter(p => fam || p.name.trim()).map(p => ({name:p.name.trim(), on: maybe ? true : p.on, drinks: full ? [...p.drinks] : []}));
-  const answer = { v:1, key: famKey ? 'fam:' + famKey : 'id:' + browserId(),
-    title: fam ? famTitle(fam) : named.map(p => p.name).join(', '),
-    family: famKey || '', greet: fam ? fam.greet : '', att, people: named,
+  const rk = rsvpKey();
+  const answer = { v:1, key: rk ? 'fam:' + rk : 'id:' + browserId(),
+    title: fam ? (fam.homes ? joinNames(fam.homes[home]) : fam.title || joinNames(fam.members || [])) : named.map(p => p.name).join(', '),
+    family: rk, greet: fam ? fam.greet : '', att, people: named,
     when: maybe ? (radio('when') || '') : '',
     allergy: full && radio('alg') ? {has: radio('alg') === 'yes', text: $('algText').value.trim()} : null,
     car: full && radio('car') ? {has: radio('car') === 'yes', text: $('carText').value.trim()} : null,
@@ -1084,13 +1140,13 @@ $('form').addEventListener('submit', async e => {
       try { await send(answer); store.set('rsvp:pending', null); }
       catch(err){ store.set('rsvp:pending', answer); throw err; }
     }
-    store.set('rsvp:' + (famKey || 'guest'), answer);
+    store.set('rsvp:' + (rk || 'guest'), answer);
     showDone(answer);
   }catch(err){
     console.warn('rsvp:', err);
-    if (err && err.server) fail('Ответ не сохранился — попробуйте ещё раз через минуту. (' + err.message + ')');
-    else if (err && err.name === 'AbortError') fail('Отправка затянулась. Нажмите «Отправить ответ» ещё раз через минуту.');
-    else fail('Не получилось отправить. Проверьте интернет и нажмите ещё раз.');
+    if (err && err.server) fail(T('Ответ не сохранился — попробуйте ещё раз через минуту.', 'Ответ не сохранился — попробуй ещё раз через минуту.') + ' (' + err.message + ')');
+    else if (err && err.name === 'AbortError') fail(T('Отправка затянулась. Нажмите «Отправить ответ» ещё раз через минуту.', 'Отправка затянулась. Нажми «Отправить ответ» ещё раз через минуту.'));
+    else fail(T('Не получилось отправить. Проверьте интернет и нажмите ещё раз.', 'Не получилось отправить. Проверь интернет и нажми ещё раз.'));
   }
   finally{ btn.disabled = false; btn.textContent = 'Отправить ответ'; }
 });
@@ -1110,13 +1166,14 @@ function sparkle(){
 function showDone(a, quiet){
   $('form').hidden = true; $('done').hidden = false;
   const names = (a.people||[]).filter(p => p.on && p.name).map(p => p.name);
-  if (a.att === 'yes'){ $('doneTitle').textContent = 'Ждём вас!'; $('doneText').textContent = names.length ? `Записали: ${names.join(', ')}. До встречи 22 августа в 14:00.` : 'До встречи 22 августа в 14:00.'; if (!quiet) sparkle(); }
+  if (a.att === 'yes'){ $('doneTitle').textContent = T('Ждём вас!', 'Ждём тебя!'); $('doneText').textContent = names.length && !one() ? `Записали: ${names.join(', ')}. До встречи 22 августа в 14:00.` : 'До встречи 22 августа в 14:00.'; if (!quiet) sparkle(); }
   else if (a.att === 'maybe'){
     const w = /^\d{4}-(\d{2})$/.exec(a.when || '');
     $('doneTitle').textContent = 'Спасибо!';
-    $('doneText').textContent = (w ? `Будем ждать вашего решения в ${MONTHS_IN[+w[1] - 1]}. ` : 'Будем надеяться на встречу. ') + 'Когда определитесь, загляните сюда и поменяйте ответ.';
+    $('doneText').textContent = (w ? `Будем ждать ${T('вашего', 'твоего')} решения в ${MONTHS_IN[+w[1] - 1]}. ` : 'Будем надеяться на встречу. ')
+      + T('Когда определитесь, загляните сюда и поменяйте ответ.', 'Когда определишься, загляни сюда и поменяй ответ.');
   }
-  else { $('doneTitle').textContent = 'Жаль, что не получится'; $('doneText').textContent = 'Спасибо, что ответили. Будем думать о вас в этот день.'; }
+  else { $('doneTitle').textContent = 'Жаль, что не получится'; $('doneText').textContent = T('Спасибо, что ответили. Будем думать о вас в этот день.', 'Спасибо, что ответил. Будем думать о тебе в этот день.', 'Спасибо, что ответила. Будем думать о тебе в этот день.'); }
   $('draftNote').hidden = !!RSVP_ENDPOINT && !DRAFT;
 }
 $('edit').onclick = () => { $('done').hidden = true; $('form').hidden = false; syncBlocks(); $('rsvp').scrollIntoView({behavior: RM ? 'auto' : 'smooth', block:'start'}); };
@@ -1129,14 +1186,16 @@ function setFont(f){
 }
 if (DRAFT){
   $('draftBar').hidden = false;
+  $('famSel').innerHTML += Object.keys(FAMILIES).map(k => `<option value="${esc(k)}">#${esc(k)} · ${esc(FAMILIES[k].greet)}</option>`).join('');
+  $('famSel').addEventListener('change', e => applyFamily(e.target.value));
   $('draftBar').addEventListener('click', e => {
-    const b = e.target.closest('[data-fam]'); if (b) applyFamily(b.dataset.fam);
     const f = e.target.closest('[data-font]'); if (f) setFont(f.dataset.font);
   });
   setFont('vibes');
 }
-addEventListener('hashchange', () => applyFamily(readFamily()));
-applyFamily(readFamily());
+addEventListener('hashchange', loadFamily);
+applyFamily('');      // сразу общий вид; по коду из ссылки обращение подставится через долю секунды
+loadFamily();
 retryPending();
 })();
 </script>
